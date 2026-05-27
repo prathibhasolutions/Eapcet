@@ -1,0 +1,172 @@
+{
+  "exams": [
+    {
+      "id": "python-oop-workbook-001",
+      "title": "Python OOP Comprehensive Assignment and Project Workbook",
+      "subtitle": "Concept Practice + Capstone Project",
+      "type": "Assignment + Project",
+      "date": "2026-05-26",
+      "suggestedTimelineDays": 7,
+      "totalMarks": 100,
+      "coverageTopics": [
+        "Class and object",
+        "Attributes and methods",
+        "Instance/class/static methods",
+        "Encapsulation and access conventions",
+        "Properties (@property, setter, deleter)",
+        "Inheritance: single, multilevel, multiple",
+        "Method overriding and super()",
+        "Polymorphism and duck typing",
+        "Abstraction with ABC",
+        "Composition and aggregation",
+        "Magic methods (__str__, __repr__, __len__, __eq__)",
+        "Operator overloading",
+        "Exception handling in class design",
+        "Dataclasses and type hints",
+        "SOLID-oriented Python design basics"
+      ],
+      "sections": [
+        {
+          "key": "foundations",
+          "title": "Section A: OOP Foundations (Concept + Basic Implementation)",
+          "marks": 20,
+          "questions": [
+            {
+              "id": "a-1",
+              "marks": 4,
+              "text": "Define class and object with one real-world example. Then create a class Student with attributes name and roll_no, and print two objects."
+            },
+            {
+              "id": "a-2",
+              "marks": 4,
+              "text": "Differentiate instance variable and class variable. Write a class Employee where company is shared and emp_id is unique per object."
+            },
+            {
+              "id": "a-3",
+              "marks": 4,
+              "text": "Write a class Rectangle with methods area() and perimeter(). Create three objects and display results in a formatted table."
+            },
+            {
+              "id": "a-4",
+              "marks": 4,
+              "text": "Explain constructor (__init__) and object initialization. Implement a class BankAccount that validates opening balance (non-negative)."
+            },
+            {
+              "id": "a-5",
+              "marks": 4,
+              "text": "Implement instance method, class method, and static method in one class TemperatureConverter with suitable use cases."
+            }
+          ]
+        },
+        {
+          "key": "encapsulation",
+          "title": "Section B: Encapsulation, Properties, and Data Safety",
+          "marks": 20,
+          "questions": [
+            {
+              "id": "b-1",
+              "marks": 4,
+              "text": "Explain encapsulation in Python. Create a class Wallet with private balance, and methods deposit(), withdraw(), and get_balance()."
+            },
+            {
+              "id": "b-2",
+              "marks": 4,
+              "text": "Use @property and @setter in a class Product for price so that negative values are rejected with ValueError."
+            },
+            {
+              "id": "b-3",
+              "marks": 4,
+              "text": "Design a class UserProfile where email is validated before assignment. Use property-based validation and custom error messages."
+            },
+            {
+              "id": "b-4",
+              "marks": 4,
+              "text": "Create a class AttendanceTracker that stores attendance safely and exposes only controlled update methods (no direct list mutation)."
+            },
+            {
+              "id": "b-5",
+              "marks": 4,
+              "text": "Build a class InventoryItem with stock update methods and exception handling for invalid operations (e.g., reducing below zero)."
+            }
+          ]
+        },
+        {
+          "key": "inheritance",
+          "title": "Section C: Inheritance and Polymorphism",
+          "marks": 20,
+          "questions": [
+            {
+              "id": "c-1",
+              "marks": 4,
+              "text": "Demonstrate single inheritance using classes Vehicle and Car. Override one method and use super() properly."
+            },
+            {
+              "id": "c-2",
+              "marks": 4,
+              "text": "Demonstrate multilevel inheritance with classes Person -> Employee -> Manager and show constructor chaining."
+            },
+            {
+              "id": "c-3",
+              "marks": 4,
+              "text": "Create a multiple-inheritance example with classes Camera, Phone, and SmartPhone. Explain MRO with output."
+            },
+            {
+              "id": "c-4",
+              "marks": 4,
+              "text": "Implement runtime polymorphism: create classes Circle and Rectangle with a common method area(), and process them in one loop."
+            },
+            {
+              "id": "c-5",
+              "marks": 4,
+              "text": "Write a duck-typing example where unrelated classes implement send() and a notifier function works with all of them."
+            }
+          ]
+        },
+        {
+          "key": "abstraction_magic",
+          "title": "Section D: Abstraction and Magic Methods",
+          "marks": 20,
+          "questions": [
+            {
+              "id": "d-1",
+              "marks": 4,
+              "text": "Use abc.ABC to define an abstract class Shape with abstract methods area() and perimeter(). Implement for Triangle and Square."
+            },
+            {
+              "id": "d-2",
+              "marks": 4,
+              "text": "Create a class Book and implement __str__ and __repr__. Explain where each is used with sample output."
+            },
+            {
+              "id": "d-3",
+              "marks": 4,
+              "text": "Create a class Vector2D and overload + and == operators using __add__ and __eq__."
+            },
+            {
+              "id": "d-4",
+              "marks": 4,
+              "text": "Implement __len__ for a custom Playlist class and show how len(obj) can be used meaningfully."
+            },
+            {
+              "id": "d-5",
+              "marks": 4,
+              "text": "Build a class Logger with context-manager support (__enter__, __exit__) to write start/end session logs to a file."
+            }
+          ]
+        },
+        {
+          "key": "design_case",
+          "title": "Section E: Capstone Project (Integrating All OOP Topics)",
+          "marks": 20,
+          "questions": [
+            {
+              "id": "e-1",
+              "marks": 20,
+              "text": "Build one complete mini-project in Python (for example: Library Management, Expense Tracker, or Course Enrollment System) using OOP. Your solution must demonstrate classes/objects, encapsulation with property validation, inheritance and method overriding, polymorphism, at least two magic methods, composition, exception handling, and clear module-level structure. Submit source code, sample input/output, and a short design note explaining class relationships."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python OOP Assignment Print</title>
+  <style>
+    :root {
+      --ink: #1f2937;
+      --muted: #4b5563;
+      --line: #d1d5db;
+      --accent: #0b4f6c;
+      --paper: #ffffff;
+      --bg: #f3f7fa;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.38;
+    }
+
+    .page {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 10px 14px 12px;
+    }
+
+    .header,
+    .section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      margin-bottom: 8px;
+    }
+
+    .header {
+      padding: 10px 12px;
+    }
+
+    .head-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .logo {
+      width: 54px;
+      height: auto;
+    }
+
+    .title-wrap h1 {
+      margin: 0;
+      font-size: 21px;
+      color: var(--accent);
+      letter-spacing: 0.2px;
+    }
+
+    .title-wrap p {
+      margin: 2px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(120px, 1fr));
+      gap: 8px;
+      margin-top: 6px;
+      font-size: 12.5px;
+    }
+
+    .meta div {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 7px;
+    }
+
+    .meta strong { color: var(--accent); }
+
+
+    .section-h {
+      background: var(--accent);
+      color: #fff;
+      border-radius: 10px 10px 0 0;
+      padding: 8px 10px;
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .q-list {
+      list-style: none;
+      margin: 0;
+      padding: 6px 10px 8px;
+    }
+
+    .q-item {
+      border-bottom: 1px dashed #e5e7eb;
+      padding: 6px 0;
+      font-size: 13px;
+    }
+
+    .q-item:last-child { border-bottom: 0; }
+
+    .q-content {
+      display: block;
+    }
+
+    @media (max-width: 760px) {
+      .meta { grid-template-columns: repeat(2, minmax(120px, 1fr)); }
+    }
+
+    @media print {
+      @page { size: A4; margin: 9mm 8mm 12mm; }
+      body { background: #fff; }
+      .page { max-width: 100%; padding: 0; }
+      .header { break-inside: avoid; }
+      .section { break-inside: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page" id="paper"></div>
+
+  <script>
+    function loadData() {
+      return fetch('python-oop-assignment-data.json', { cache: 'no-store' }).then(function(r) {
+        return r.json();
+      });
+    }
+
+    function render(data) {
+      var exam = data.exams[0];
+      var host = document.getElementById('paper');
+
+      var html = '';
+
+      html += '<div class="header">';
+      html += '  <div class="head-top">';
+      html += '    <img class="logo" src="assets/logo/prathibha-institute-logo.png" alt="Institute logo" />';
+      html += '    <div class="title-wrap">';
+      html += '      <h1>' + exam.title + '</h1>';
+      html += '      <p>' + (exam.subtitle || '') + '</p>';
+      html += '    </div>';
+      html += '  </div>';
+      html += '  <div class="meta">';
+      html += '    <div><strong>Date</strong><br>' + exam.date + '</div>';
+      html += '    <div><strong>Format</strong><br>' + (exam.type || 'Assignment') + '</div>';
+      html += '    <div><strong>Type</strong><br>Assignment + Project</div>';
+      html += '    <div><strong>Suggested Timeline</strong><br>' + (exam.suggestedTimelineDays || 7) + ' days</div>';
+      html += '  </div>';
+      html += '</div>';
+
+      exam.sections.forEach(function(section) {
+        html += '<section class="section">';
+        html += '  <div class="section-h">';
+        html += '    <span>' + section.title + '</span>';
+        html += '  </div>';
+        html += '  <ol class="q-list">';
+        section.questions.forEach(function(q, idx) {
+          html += '    <li class="q-item">';
+          html += '      <span class="q-content"><strong>Q' + (idx + 1) + '.</strong> ' + q.text + '</span>';
+          html += '    </li>';
+        });
+        html += '  </ol>';
+        html += '</section>';
+      });
+
+      host.innerHTML = html;
+    }
+
+    loadData().then(render).catch(function() {
+      document.getElementById('paper').innerHTML = '<p style="padding:20px;">Unable to load python-oop-assignment-data.json</p>';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,407 @@
+{
+  "exams": [
+    {
+      "id": "dca-practical-001",
+      "title": "DCA Practical Examination",
+      "date": "2026-05-27",
+      "durationMinutes": 180,
+      "totalMarks": 100,
+      "qualifyingPercent": 70,
+      "sections": [
+        {
+          "key": "word",
+          "title": "MS Word",
+          "marks": 24,
+          "questions": [
+            {
+              "id": "word-1",
+              "marks": 5,
+              "text": "Create a Word document and apply underlining with a custom underline color to a selected heading and one sentence in a paragraph."
+            },
+            {
+              "id": "word-2",
+              "marks": 5,
+              "text": "Insert a bulleted list with at least five points and place Heading 1, Heading 2, and Heading 3 appropriately between paragraphs."
+            },
+            {
+              "id": "word-3",
+              "marks": 5,
+              "text": "Use Find and Replace to replace one repeated word throughout the document, then insert a 5-column and 8-row table and insert one online picture."
+            },
+            {
+              "id": "word-4",
+              "marks": 5,
+              "text": "Insert one picture or symbol between text, add a hyperlink to either that picture or a file located on the Desktop, and demonstrate wrapping style adjustment."
+            },
+            {
+              "id": "word-5",
+              "marks": 5,
+              "text": "Add bookmarks for headings and insert cross-references to those headings in another part of the document."
+            },
+            {
+              "id": "word-6",
+              "marks": 5,
+              "text": "Apply a watermark, change the page color, add a page border, and format any paragraph into three newspaper-style columns."
+            },
+            {
+              "id": "word-7",
+              "marks": 5,
+              "text": "Insert a table of contents for all headings, add at least one footnote per page, insert one book citation, and add image captions."
+            },
+            {
+              "id": "word-8",
+              "marks": 5,
+              "text": "Create a mail merge recipient list with sample names and details, enable Track Changes and edit text, record one macro, group two objects, remove image background, edit shape points, and write text inside a shape using the same color as the shape."
+            }
+          ]
+        },
+        {
+          "key": "excel",
+          "title": "MS Excel",
+          "marks": 24,
+          "questions": [
+            {
+              "id": "excel-1",
+              "marks": 5,
+              "text": "Create an SSC-style data table. Apply Wrap Text, merge required cells, and remove gridlines for the worksheet view."
+            },
+            {
+              "id": "excel-2",
+              "marks": 5,
+              "text": "Apply conditional formatting rules (highlight cells, data bars, color scales, and icon sets) to random numeric values."
+            },
+            {
+              "id": "excel-3",
+              "marks": 5,
+              "text": "Protect the worksheet with a password and then demonstrate how to unprotect it."
+            },
+            {
+              "id": "excel-4",
+              "marks": 5,
+              "text": "Create a PivotTable from sample data, insert at least two charts based on it, and add a slicer to filter those charts."
+            },
+            {
+              "id": "excel-5",
+              "marks": 5,
+              "text": "Use Text to Columns on one field, apply Data Validation on another cell, and group both rows and columns."
+            },
+            {
+              "id": "excel-6",
+              "marks": 5,
+              "text": "Define a named range for a data table and use Trace Precedents on at least one formula cell."
+            },
+            {
+              "id": "excel-7",
+              "marks": 5,
+              "text": "Create formulas using: SUM, AVERAGE, COUNT, COUNTBLANK, MAX, MIN, LEFT, RIGHT, UPPER, LOWER, TRIM, AND, OR, SUMIF, COUNTIF, AVERAGEIF, SUMIFS, COUNTIFS, AVERAGEIFS, IF, and IFS."
+            },
+            {
+              "id": "excel-8",
+              "marks": 5,
+              "text": "Convert data into a table, apply filters, and filter the top 3 values in one numeric column."
+            }
+          ]
+        },
+        {
+          "key": "powerpoint",
+          "title": "MS PowerPoint",
+          "marks": 12,
+          "questions": [
+            {
+              "id": "ppt-1",
+              "marks": 10,
+              "text": "Create a presentation on any suitable topic with a clear title slide and relevant content slides. Insert at least 10 online images. Apply transitions and meaningful animations for each image/slide, maintain visual consistency, and ensure the slideshow is presentation-ready."
+            },
+            {
+              "id": "ppt-2",
+              "marks": 10,
+              "text": "Recreate the following sample slide exactly in MS PowerPoint (same layout, icons, connectors, colors, and text blocks).",
+              "image": "assets/exams/dca/powerpoint-template.jpeg"
+            }
+          ]
+        },
+        {
+          "key": "theory-mcq",
+          "title": "DCA Theory - MCQs",
+          "marks": 10,
+          "questions": [
+            {
+              "id": "theory-mcq-1",
+              "marks": 1,
+              "text": "Which generation used vacuum tubes?",
+              "options": ["First", "Second", "Third", "Fourth"]
+            },
+            {
+              "id": "theory-mcq-2",
+              "marks": 1,
+              "text": "ENIAC belongs to which generation?",
+              "options": ["First", "Second", "Third", "Fifth"]
+            },
+            {
+              "id": "theory-mcq-3",
+              "marks": 1,
+              "text": "Which replaced vacuum tubes?",
+              "options": ["IC", "Transistor", "Microprocessor", "RAM"]
+            },
+            {
+              "id": "theory-mcq-4",
+              "marks": 1,
+              "text": "IBM 1401 belongs to which generation?",
+              "options": ["First", "Second", "Third", "Fourth"]
+            },
+            {
+              "id": "theory-mcq-5",
+              "marks": 1,
+              "text": "IC stands for?",
+              "options": ["Internal Chip", "Integrated Circuit", "Input Circuit", "None"]
+            },
+            {
+              "id": "theory-mcq-6",
+              "marks": 1,
+              "text": "Which generation introduced microprocessors?",
+              "options": ["Second", "Third", "Fourth", "Fifth"]
+            },
+            {
+              "id": "theory-mcq-7",
+              "marks": 1,
+              "text": "AI belongs to which generation?",
+              "options": ["Third", "Fourth", "Fifth", "Second"]
+            },
+            {
+              "id": "theory-mcq-8",
+              "marks": 1,
+              "text": "Computer is a?",
+              "options": ["Machine", "Electronic device", "Software", "None"]
+            },
+            {
+              "id": "theory-mcq-9",
+              "marks": 1,
+              "text": "CPU stands for?",
+              "options": ["Central Process Unit", "Central Processing Unit", "Control Unit", "None"]
+            },
+            {
+              "id": "theory-mcq-10",
+              "marks": 1,
+              "text": "ALU performs?",
+              "options": ["Input", "Logic and arithmetic", "Storage", "Output"]
+            },
+            {
+              "id": "theory-mcq-11",
+              "marks": 1,
+              "text": "RAM is?",
+              "options": ["Permanent", "Temporary", "External", "None"]
+            },
+            {
+              "id": "theory-mcq-12",
+              "marks": 1,
+              "text": "ROM is?",
+              "options": ["Volatile", "Permanent", "Cache", "None"]
+            },
+            {
+              "id": "theory-mcq-13",
+              "marks": 1,
+              "text": "Keyboard is?",
+              "options": ["Input", "Output", "Storage", "None"]
+            },
+            {
+              "id": "theory-mcq-14",
+              "marks": 1,
+              "text": "Monitor is?",
+              "options": ["Input", "Output", "Storage", "CPU"]
+            },
+            {
+              "id": "theory-mcq-15",
+              "marks": 1,
+              "text": "1 Byte equals?",
+              "options": ["4 bits", "8 bits", "16 bits", "32 bits"]
+            },
+            {
+              "id": "theory-mcq-16",
+              "marks": 1,
+              "text": "1024 KB equals?",
+              "options": ["1 MB", "1 GB", "1 TB", "1 Byte"]
+            },
+            {
+              "id": "theory-mcq-17",
+              "marks": 1,
+              "text": "USB is used for?",
+              "options": ["Display", "Storage", "Connecting devices", "None"]
+            },
+            {
+              "id": "theory-mcq-18",
+              "marks": 1,
+              "text": "HDMI is used for?",
+              "options": ["Audio", "Video", "Display", "All"]
+            },
+            {
+              "id": "theory-mcq-19",
+              "marks": 1,
+              "text": "Ethernet is used for?",
+              "options": ["Printing", "Networking", "Storage", "None"]
+            },
+            {
+              "id": "theory-mcq-20",
+              "marks": 1,
+              "text": "Binary uses digits?",
+              "options": ["0-9", "0-1", "A-F", "1-9"]
+            }
+          ]
+        },
+        {
+          "key": "theory-fill",
+          "title": "DCA Theory - Fill in the Blanks",
+          "marks": 10,
+          "questions": [
+            { "id": "theory-fill-1", "marks": 1, "text": "Computers are divided into ____ generations." },
+            { "id": "theory-fill-2", "marks": 1, "text": "The first generation used ____ tubes." },
+            { "id": "theory-fill-3", "marks": 1, "text": "IBM 1401 belongs to the ____ generation." },
+            { "id": "theory-fill-4", "marks": 1, "text": "IC means ____ Circuit." },
+            { "id": "theory-fill-5", "marks": 1, "text": "The fourth generation introduced ____processors." },
+            { "id": "theory-fill-6", "marks": 1, "text": "A computer is an ____ device." },
+            { "id": "theory-fill-7", "marks": 1, "text": "CPU stands for Central ____ Unit." },
+            { "id": "theory-fill-8", "marks": 1, "text": "ALU performs ____ and arithmetic operations." },
+            { "id": "theory-fill-9", "marks": 1, "text": "RAM is ____ memory." },
+            { "id": "theory-fill-10", "marks": 1, "text": "ROM is ____ memory." },
+            { "id": "theory-fill-11", "marks": 1, "text": "A keyboard is an ____ device." },
+            { "id": "theory-fill-12", "marks": 1, "text": "A monitor is an ____ device." },
+            { "id": "theory-fill-13", "marks": 1, "text": "1 byte equals ____ bits." },
+            { "id": "theory-fill-14", "marks": 1, "text": "1024 KB equals 1 ____." },
+            { "id": "theory-fill-15", "marks": 1, "text": "USB is commonly used to connect ____ devices." },
+            { "id": "theory-fill-16", "marks": 1, "text": "Ethernet is mainly used for ____." },
+            { "id": "theory-fill-17", "marks": 1, "text": "CPU is called the ____ of the computer." },
+            { "id": "theory-fill-18", "marks": 1, "text": "Decimal number system has base ____." },
+            { "id": "theory-fill-19", "marks": 1, "text": "Printer is an ____ device." },
+            { "id": "theory-fill-20", "marks": 1, "text": "Hardware refers to the ____ parts of a computer." }
+          ]
+        },
+        {
+          "key": "shortcut-mcq",
+          "title": "Shortcut Keys Test",
+          "marks": 20,
+          "questions": [
+            {
+              "id": "shortcut-mcq-1",
+              "marks": 1,
+              "text": "Which shortcut key is used to Copy?",
+              "options": ["Ctrl + X", "Ctrl + C", "Ctrl + V", "Ctrl + Z"]
+            },
+            {
+              "id": "shortcut-mcq-2",
+              "marks": 1,
+              "text": "Which shortcut key is used to Paste?",
+              "options": ["Ctrl + P", "Ctrl + V", "Ctrl + C", "Ctrl + Y"]
+            },
+            {
+              "id": "shortcut-mcq-3",
+              "marks": 1,
+              "text": "Which shortcut key is used to Cut selected content?",
+              "options": ["Ctrl + X", "Ctrl + C", "Ctrl + A", "Ctrl + O"]
+            },
+            {
+              "id": "shortcut-mcq-4",
+              "marks": 1,
+              "text": "Which shortcut key is used for Undo?",
+              "options": ["Ctrl + Y", "Ctrl + U", "Ctrl + Z", "Ctrl + R"]
+            },
+            {
+              "id": "shortcut-mcq-5",
+              "marks": 1,
+              "text": "Which shortcut key is used for Redo?",
+              "options": ["Ctrl + Z", "Ctrl + Y", "Ctrl + T", "Ctrl + N"]
+            },
+            {
+              "id": "shortcut-mcq-6",
+              "marks": 1,
+              "text": "Which shortcut key is used to Save a file?",
+              "options": ["Ctrl + S", "Ctrl + P", "Ctrl + O", "Ctrl + W"]
+            },
+            {
+              "id": "shortcut-mcq-7",
+              "marks": 1,
+              "text": "Which shortcut key is used to Print?",
+              "options": ["Ctrl + S", "Ctrl + H", "Ctrl + P", "Ctrl + F"]
+            },
+            {
+              "id": "shortcut-mcq-8",
+              "marks": 1,
+              "text": "Which shortcut key is used to Find text?",
+              "options": ["Ctrl + G", "Ctrl + F", "Ctrl + E", "Ctrl + D"]
+            },
+            {
+              "id": "shortcut-mcq-9",
+              "marks": 1,
+              "text": "Which shortcut key is used to Replace text?",
+              "options": ["Ctrl + H", "Ctrl + J", "Ctrl + K", "Ctrl + L"]
+            },
+            {
+              "id": "shortcut-mcq-10",
+              "marks": 1,
+              "text": "Which shortcut key is used to make text Bold?",
+              "options": ["Ctrl + B", "Ctrl + I", "Ctrl + U", "Ctrl + M"]
+            },
+            {
+              "id": "shortcut-mcq-11",
+              "marks": 1,
+              "text": "Which shortcut key is used to Underline text?",
+              "options": ["Ctrl + U", "Ctrl + B", "Ctrl + R", "Ctrl + D"]
+            },
+            {
+              "id": "shortcut-mcq-12",
+              "marks": 1,
+              "text": "Which shortcut key inserts a hyperlink?",
+              "options": ["Ctrl + G", "Ctrl + K", "Ctrl + Q", "Ctrl + H"]
+            },
+            {
+              "id": "shortcut-mcq-13",
+              "marks": 1,
+              "text": "Which shortcut key is commonly used for Save As?",
+              "options": ["Ctrl + Shift + S", "Ctrl + Shift + A", "Ctrl + Shift + D", "Ctrl + Shift + V"]
+            },
+            {
+              "id": "shortcut-mcq-14",
+              "marks": 1,
+              "text": "Which Windows shortcut opens File Explorer?",
+              "options": ["Windows + D", "Windows + E", "Windows + I", "Windows + R"]
+            },
+            {
+              "id": "shortcut-mcq-15",
+              "marks": 1,
+              "text": "Which Windows shortcut locks the computer?",
+              "options": ["Windows + M", "Windows + L", "Windows + Tab", "Windows + Up Arrow"]
+            },
+            {
+              "id": "shortcut-mcq-16",
+              "marks": 1,
+              "text": "Which shortcut is used to switch between open apps?",
+              "options": ["Alt + Tab", "Alt + F4", "Ctrl + Tab", "Shift + Delete"]
+            },
+            {
+              "id": "shortcut-mcq-17",
+              "marks": 1,
+              "text": "Which shortcut closes the current app?",
+              "options": ["Alt + F4", "Alt + Tab", "Ctrl + W", "Windows + D"]
+            },
+            {
+              "id": "shortcut-mcq-18",
+              "marks": 1,
+              "text": "Which shortcut opens Task Manager directly?",
+              "options": ["Ctrl + Alt + Delete", "Ctrl + Shift + Esc", "Alt + F5", "F2"]
+            },
+            {
+              "id": "shortcut-mcq-19",
+              "marks": 1,
+              "text": "In PowerPoint, which key starts the slideshow from the beginning?",
+              "options": ["F4", "F5", "F7", "F12"]
+            },
+            {
+              "id": "shortcut-mcq-20",
+              "marks": 1,
+              "text": "In PowerPoint, which shortcut creates a new slide?",
+              "options": ["Ctrl + N", "Ctrl + D", "Ctrl + M", "Ctrl + Shift + D"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

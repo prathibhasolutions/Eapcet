@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>NEET 2023 - Question Paper</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"/>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="initRender()"></script>
+<style>
+@page { size: A4 portrait; margin: 11mm 13mm; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Times New Roman', Times, serif; font-size: 10pt; line-height: 1.42; color: #000; background: #fff; padding: 10mm; position: relative; }
+.logo-container { position: absolute; top: 7pt; right: 10pt; width: 16mm; height: 16mm; pointer-events: none; }
+.logo-img { display: block; width: 100%; height: 100%; object-fit: contain; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+@media print { body { padding: 0; } .logo-container { position: absolute; top: 7pt; right: 10pt; } }
+@page { margin: 40mm 13mm 16mm; }
+.exam-header { border: 2px solid #000; padding: 7pt 52pt 6pt 10pt; margin-bottom: 7pt; text-align: center; position: relative; }
+.exam-title { font-size: 12.5pt; font-weight: bold; text-transform: uppercase; letter-spacing: .4pt; }
+.exam-code { font-size: 9pt; font-weight: bold; margin-top: 2pt; }
+.exam-meta { display: flex; justify-content: space-around; margin-top: 5pt; font-size: 9pt; border-top: 1px solid #000; padding-top: 4pt; font-weight: bold; }
+.instructions { border: 1px solid #555; padding: 5pt 8pt; margin-bottom: 7pt; font-size: 8.5pt; }
+.inst-title { font-weight: bold; margin-bottom: 3pt; font-size: 9pt; }
+.instructions ol { margin-left: 14pt; }
+.instructions li { margin-bottom: 1.5pt; }
+.questions-wrap { column-count: 2; column-gap: 7mm; column-rule: 1px solid #bbb; }
+.section-hdr { column-span: all; background: #111; color: #fff; text-align: center; font-weight: bold; font-size: 10pt; letter-spacing: .6pt; padding: 4pt 0; margin: 6pt 0 3pt; }
+.question { break-inside: avoid; margin-bottom: 6pt; padding-bottom: 5pt; border-bottom: 1px dotted #ccc; }
+.question:last-child { border-bottom: none; }
+.q-row { display: flex; gap: 3pt; align-items: flex-start; }
+.q-num { font-weight: bold; min-width: 20pt; flex-shrink: 0; padding-top: 1pt; }
+.q-body { flex: 1; min-width: 0; }
+.q-text { margin-bottom: 2pt; word-break: break-word; }
+.img-wrap { display: block; }
+.img-box { display: block; max-width: 100%; max-height: 55mm; margin: 3pt 0; border: 1px solid #bbb; object-fit: contain; background: #fff; }
+.img-missing { display: none; width: 100%; padding: 4pt 6pt; margin: 3pt 0; border: 1px dashed #999; background: #f7f7f7; font-size: 7pt; color: #777; font-family: monospace; word-break: break-all; }
+.options { margin-top: 3pt; }
+.option { display: flex; gap: 3pt; align-items: flex-start; margin-bottom: 1.5pt; }
+.opt-lbl { font-weight: bold; min-width: 18pt; flex-shrink: 0; }
+.opt-body { flex: 1; min-width: 0; word-break: break-word; }
+.opt-img { display: block; max-width: 100%; max-height: 24mm; margin-top: 2pt; border: 1px solid #ccc; object-fit: contain; background: #fff; }
+.ans-page { page-break-before: always; margin-top: 10mm; }
+.ans-title { text-align: center; font-size: 12pt; font-weight: bold; margin-bottom: 8pt; border-bottom: 2px solid #000; padding-bottom: 4pt; }
+.ans-section { margin-bottom: 8pt; }
+.ans-sec-hdr { font-weight: bold; background: #eee; padding: 3pt 5pt; margin-bottom: 4pt; font-size: 8.5pt; }
+.ans-grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 2pt; font-size: 8pt; }
+.ans-cell { border: 1px solid #ccc; padding: 2pt 3pt; text-align: center; }
+.print-footer { display: none; }
+@media print {
+  .print-footer {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0mm;
+    text-align: center;
+    font-size: 8pt;
+    letter-spacing: .5pt;
+    color: #111;
+  }
+}
+</style>
+</head>
+<body>
+<div class="exam-header">
+  <div class="logo-container" aria-hidden="true"><img class="logo-img" src="assets/logo/prathibha-institute-logo.png" alt="Institute Logo"/></div>
+  <div class="exam-title">NEET 2023</div>
+  <div class="exam-code">Question Paper | Code: XX</div>
+  <div class="exam-meta">
+    <span>Date: 2023</span>
+    <span>Duration: 3 Hours 15 Mins (195 min)</span>
+    <span>Total Questions: 180</span>
+    <span>Maximum Marks: 720</span>
+  </div>
+</div>
+
+<div class="instructions">
+  <div class="inst-title">GENERAL INSTRUCTIONS</div>
+  <ol>
+    <li>This paper has <strong>180 questions</strong>: Physics Q.1-Q.45, Chemistry Q.46-Q.90, Botany Q.91-Q.135, Zoology Q.136-Q.180.</li>
+    <li>Each correct answer: <strong>+4 marks</strong>. Each incorrect answer: <strong>-1 mark</strong>. Unattempted: 0.</li>
+    <li>Only <strong>ONE</strong> option is correct per question.</li>
+  </ol>
+</div>
+
+<div id="qwrap" class="questions-wrap"></div>
+<div id="anskey"></div>
+<div class="print-footer">Prathibha Institute</div>
+<div id="loadStatus" style="margin:6pt 0 8pt;padding:6pt 8pt;border:1px solid #999;background:#f8f8f8;font-size:8pt;"></div>
+
+<script id="edata" type="application/json">
+{
+  "exams": [
+    {
+      "id": "neet-pyq",
+      "title": "NEET Previous Year Paper",
+      "date": "2023-05-07",
+      "durationMinutes": 195,
+      "marksPerQuestion": 4,
+      "negativeMark": 1,
+      "sections": [
+        { "key": "physics", "title": "Physics", "count": 45, "start": 1, "end": 45 },
+        { "key": "chemistry", "title": "Chemistry", "count": 45, "start": 46, "end": 90 },
+        { "key": "botany", "title": "Botany", "count": 45, "start": 91, "end": 135 },
+        { "key": "zoology", "title": "Zoology", "count": 45, "start": 136, "end": 180 }
+      ],
+      "questions": []
+    }
+  ]
+}
+</script>
+
+<script>
+async function initRender() {
+  const data = await loadExamData();
+  renderExam(data);
+}
+
+async function loadExamData() {
+  try {
+    const res = await fetch('neet-2023-data.json', { cache: 'no-store' });
+    if (res.ok) {
+      const data = await res.json();
+      data.__source = 'neet-2023-data.json';
+      return data;
+    }
+  } catch (e) {
+    // Ignore and fallback to embedded payload.
+  }
+
+  const raw = document.getElementById('edata').textContent;
+  const data = JSON.parse(raw);
+  data.__source = 'embedded edata';
+  return data;
+}
+
+function overallNum(id) {
+  const p = id.split('-');
+  const sec = p[0];
+  const n = parseInt(p[1], 10);
+  if (sec === 'physics') return n;
+  if (sec === 'chemistry') return 45 + n;
+  if (sec === 'botany') return 90 + n;
+  if (sec === 'zoology') return 135 + n;
+  return n;
+}
+
+function escHtml(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function imgBox(path, cls) {
+  const safePath = escHtml(path);
+  const safeSrc = encodeURI(path);
+  return '<span class="img-wrap"><img class="' + cls + '" src="' + safeSrc + '" alt="Exam figure" onerror="this.style.display=\'none\'; this.nextElementSibling.style.display=\'block\';"><span class="img-missing">[MISSING IMAGE: ' + safePath + ']</span></span>';
+}
+
+function renderExam(data) {
+  const exam = data.exams[0] || { questions: [] };
+  const wrap = document.getElementById('qwrap');
+  const statusEl = document.getElementById('loadStatus');
+
+  const secRanges = { Physics: [1, 45], Chemistry: [46, 90], Botany: [91, 135], Zoology: [136, 180] };
+  const optMap = { A: '(1)', B: '(2)', C: '(3)', D: '(4)' };
+  const questions = Array.isArray(exam.questions) ? exam.questions : [];
+  const sortedQuestions = questions.sort(function(a, b) { return overallNum(a.id) - overallNum(b.id); });
+
+  if (statusEl) {
+    statusEl.textContent = 'Loaded ' + sortedQuestions.length + ' question(s) from ' + (data.__source || 'unknown source') + '.';
+  }
+
+  let html = '';
+  let curSec = '';
+
+  sortedQuestions.forEach(function(q) {
+    const oNum = overallNum(q.id);
+
+    if (q.section !== curSec) {
+      curSec = q.section;
+      const r = secRanges[curSec] || [0, 0];
+      html += '<div class="section-hdr">' + curSec.toUpperCase() + ' (Q.' + r[0] + ' to Q.' + r[1] + ')</div>';
+    }
+
+    const qTxt = (q.text || '').replace(/\n/g, '<br>');
+    let opts = '<div class="options">';
+    (q.options || []).forEach(function(o) {
+      opts += '<div class="option"><span class="opt-lbl">' + (optMap[o.id] || '(' + o.id + ')') + '</span><span class="opt-body">' + (o.text || '');
+      if (o.image) opts += imgBox(o.image, 'opt-img');
+      opts += '</span></div>';
+    });
+    opts += '</div>';
+
+    html += '<div class="question" id="q' + oNum + '"><div class="q-row"><span class="q-num">' + oNum + '.</span><div class="q-body"><div class="q-text">' + qTxt + '</div>' + (q.image ? imgBox(q.image, 'img-box') : '') + opts + '</div></div></div>';
+  });
+
+  if (!html) {
+    html = '<div class="question"><div class="q-row"><span class="q-num">1.</span><div class="q-body"><div class="q-text">No questions loaded yet. Paste your NEET 2023 JSON in neet-2023-data.json.</div></div></div></div>';
+  }
+
+  wrap.innerHTML = html;
+
+  function answerKeyLabel(q) {
+    const issuedKey = (q.issue || '').match(/Answer marked\s+([^\s,.;:)]+)/i);
+    if (issuedKey) return issuedKey[1];
+    if (typeof q.correct === 'string' && /^[1-4][*]*$/.test(q.correct)) return q.correct;
+    if (typeof q.correct === 'string' && /^[A-D][*]*$/i.test(q.correct)) {
+      const base = q.correct.charAt(0).toUpperCase();
+      const suffix = q.correct.slice(1);
+      if (base === 'A') return '1' + suffix;
+      if (base === 'B') return '2' + suffix;
+      if (base === 'C') return '3' + suffix;
+      if (base === 'D') return '4' + suffix;
+    }
+    if (q.correct === 'A') return '1';
+    if (q.correct === 'B') return '2';
+    if (q.correct === 'C') return '3';
+    if (q.correct === 'D') return '4';
+    if (q.correct) return String(q.correct);
+    return '-';
+  }
+
+  let akHtml = '<div class="ans-page"><div class="ans-title">ANSWER KEY - NEET 2023</div>';
+  const secs = [
+    { name: 'Physics', key: 'physics', start: 1, end: 45 },
+    { name: 'Chemistry', key: 'chemistry', start: 46, end: 90 },
+    { name: 'Botany', key: 'botany', start: 91, end: 135 },
+    { name: 'Zoology', key: 'zoology', start: 136, end: 180 }
+  ];
+
+  secs.forEach(function(sec) {
+    akHtml += '<div class="ans-section"><div class="ans-sec-hdr">' + sec.name + ' (Q.' + sec.start + '-Q.' + sec.end + ')</div><div class="ans-grid">';
+    const qs = sortedQuestions.filter(function(q) { return q.id && q.id.indexOf(sec.key + '-') === 0; });
+    qs.forEach(function(q) {
+      const n = overallNum(q.id);
+      const ans = String(n) + '.(' + answerKeyLabel(q) + ')';
+      akHtml += '<div class="ans-cell">' + ans + '</div>';
+    });
+    akHtml += '</div></div>';
+  });
+
+  akHtml += '</div>';
+  document.getElementById('anskey').innerHTML = akHtml;
+
+  if (typeof renderMathInElement !== 'undefined') {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false }
+      ],
+      throwOnError: false,
+      errorColor: '#c00'
+    });
+  }
+}
+
+document.addEventListener('DOMContentLoaded', async function() {
+  if (document.getElementById('qwrap').innerHTML === '') {
+    const data = await loadExamData();
+    renderExam(data);
+  }
+});
+</script>
+</body>
+</html>
+

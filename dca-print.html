@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DCA Practical Examination</title>
+  <style>
+    :root {
+      --ink: #1f2937;
+      --muted: #6b7280;
+      --line: #d1d5db;
+      --accent: #0f3460;
+      --bg: #f8fafc;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.45;
+    }
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 10px 14px 44px;
+    }
+    .header {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+    }
+    .student-info {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+    }
+    .student-title {
+      margin: 0 0 8px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .student-grid {
+      display: grid;
+      grid-template-columns: 2fr 1.2fr;
+      gap: 10px;
+      font-size: 13px;
+    }
+    .student-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+    .line-fill {
+      flex: 1;
+      min-width: 70px;
+      border-bottom: 1px solid #9ca3af;
+      height: 14px;
+    }
+    .head-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+    .logo {
+      width: 56px;
+      height: auto;
+    }
+    .title-wrap h1 {
+      margin: 0;
+      font-size: 22px;
+      color: var(--accent);
+    }
+    .title-wrap p {
+      margin: 2px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(120px, 1fr));
+      gap: 8px;
+      margin-top: 8px;
+      font-size: 13px;
+    }
+    .meta div {
+      background: #f3f4f6;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 8px;
+    }
+    .meta strong { color: var(--accent); }
+
+    .instructions {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 8px 12px;
+      margin-bottom: 8px;
+    }
+    .instructions h2 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      color: var(--accent);
+    }
+    .instructions ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .section {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      margin-bottom: 8px;
+    }
+    .section-h {
+      background: var(--accent);
+      color: #fff;
+      border-radius: 10px 10px 0 0;
+      padding: 8px 12px;
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 15px;
+    }
+    .q-list {
+      list-style: none;
+      margin: 0;
+      padding: 6px 10px 8px;
+    }
+    .q-item {
+      border-bottom: 1px dashed #e5e7eb;
+      padding: 5px 0;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: start;
+      font-size: 13px;
+    }
+    .q-item:last-child { border-bottom: 0; }
+    .marks {
+      white-space: nowrap;
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 13px;
+    }
+    .q-content {
+      display: block;
+    }
+    .q-image {
+      display: block;
+      margin-top: 6px;
+      max-width: 78%;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      background: #fff;
+      padding: 4px;
+    }
+    .q-options {
+      margin: 4px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px 10px;
+      color: #374151;
+      font-size: 12.5px;
+    }
+    .q-options li {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .theory-compact .q-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 14px;
+    }
+    .blank-line {
+      border-bottom: 1px solid #9ca3af;
+      min-width: 130px;
+      display: inline-block;
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 700px) {
+      .meta { grid-template-columns: repeat(2, minmax(120px, 1fr)); }
+      .q-item { grid-template-columns: 1fr; }
+      .marks { justify-self: start; }
+      .theory-compact .q-list { grid-template-columns: 1fr; }
+      .q-options { grid-template-columns: 1fr; }
+      .q-image { max-width: 100%; }
+      .student-grid { grid-template-columns: 1fr; }
+    }
+
+    @media print {
+      @page { size: A4; margin: 10mm 8mm 14mm; }
+      body { background: #fff; }
+      .page { max-width: 100%; padding: 0 0 8px; }
+      .student-info, .header, .instructions { break-inside: avoid; }
+      .section { break-inside: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page" id="paper"></div>
+
+  <script>
+    function loadData() {
+      return fetch('dca-data.json', { cache: 'no-store' }).then(function(r) { return r.json(); });
+    }
+
+    function render(paper) {
+      var exam = paper.exams[0];
+      var host = document.getElementById('paper');
+
+      var totalSectionsMarks = exam.sections.reduce(function(sum, s) { return sum + (s.marks || 0); }, 0);
+      var passMarks = Math.ceil((exam.qualifyingPercent / 100) * exam.totalMarks);
+      function formatMarks(v) {
+        var n = Number(v || 0);
+        if (Number.isInteger(n)) return String(n);
+        return n.toFixed(2).replace(/\.00$/, '').replace(/(\.\d)0$/, '$1');
+      }
+
+      var html = '';
+      html += '<div class="student-info">';
+      html += '  <h2 class="student-title">Student Details</h2>';
+      html += '  <div class="student-grid">';
+      html += '    <div class="student-row"><span>Name:</span><span class="line-fill"></span></div>';
+      html += '    <div class="student-row"><span>Date:</span><span class="line-fill"></span></div>';
+      html += '    <div class="student-row"><span>Mobile:</span><span class="line-fill"></span></div>';
+      html += '    <div class="student-row"><span>Signature:</span><span class="line-fill"></span></div>';
+      html += '  </div>';
+      html += '</div>';
+
+      html += '<div class="header">';
+      html += '  <div class="head-top">';
+      html += '    <img class="logo" src="assets/logo/prathibha-institute-logo.png" alt="Institute logo" />';
+      html += '    <div class="title-wrap">';
+      html += '      <h1>' + exam.title + '</h1>';
+      html += '      <p>Three Sections: Word, Excel, PowerPoint</p>';
+      html += '    </div>';
+      html += '  </div>';
+      html += '  <div class="meta">';
+      html += '    <div><strong>Date</strong><br>' + exam.date + '</div>';
+      html += '    <div><strong>Duration</strong><br>' + exam.durationMinutes + ' minutes</div>';
+      html += '    <div><strong>Total Marks</strong><br>' + exam.totalMarks + '</div>';
+      html += '    <div><strong>Qualifying</strong><br>' + exam.qualifyingPercent + '% (' + passMarks + ' marks)</div>';
+      html += '  </div>';
+      html += '</div>';
+
+      html += '<div class="instructions">';
+      html += '  <h2>General Instructions</h2>';
+      html += '  <ul>';
+      html += '    <li>Answer all sections. Perform tasks in MS Word, MS Excel, and MS PowerPoint as instructed.</li>';
+      html += '    <li>Maintain proper file naming and save your work regularly.</li>';
+      html += '    <li>Total section marks: ' + totalSectionsMarks + '. Overall qualifying requirement: ' + exam.qualifyingPercent + '%.</li>';
+      html += '    <li>Theory section includes general MCQs, fill-in-the-blanks, and a 20-question shortcut keys test.</li>';
+      html += '    <li>Use professional formatting, grammar, and document structure in all tasks.</li>';
+      html += '  </ul>';
+      html += '</div>';
+
+      exam.sections.forEach(function(section) {
+        var isTheory = section.key === 'theory-mcq' || section.key === 'theory-fill' || section.key === 'shortcut-mcq';
+        html += '<section class="section' + (isTheory ? ' theory-compact' : '') + '">';
+        html += '  <div class="section-h">';
+        html += '    <span>' + section.title + '</span>';
+        html += '    <span>Section Marks: ' + section.marks + '</span>';
+        html += '  </div>';
+        html += '  <ol class="q-list">';
+        var perQuestionMarks = section.questions && section.questions.length ? (section.marks / section.questions.length) : 0;
+        section.questions.forEach(function(q) {
+          html += '    <li class="q-item">';
+          var qNo = '';
+          if (section.key === 'theory-mcq') {
+            qNo = String(q.id || '').replace('theory-mcq-', '');
+          }
+          if (section.key === 'shortcut-mcq') {
+            qNo = String(q.id || '').replace('shortcut-mcq-', '');
+          }
+          if (section.key === 'theory-fill') {
+            qNo = String(q.id || '').replace('theory-fill-', '');
+          }
+          var qText = q.text || '';
+          if (section.key === 'theory-mcq' || section.key === 'shortcut-mcq') {
+            qText = '<strong>Q' + qNo + '.</strong> ' + qText;
+          }
+          if (section.key === 'theory-fill') {
+            qText = qText.replace(/____/g, '<span class="blank-line"></span>');
+            qText = '<strong>Q' + qNo + '.</strong> ' + qText;
+          }
+          html += '      <span class="q-content">' + qText;
+          if (Array.isArray(q.options) && q.options.length) {
+            html += '<ul class="q-options">';
+            q.options.forEach(function(opt, idx) {
+              var label = String.fromCharCode(65 + idx);
+              html += '<li>' + label + ') ' + opt + '</li>';
+            });
+            html += '</ul>';
+          }
+          if (q.image) {
+            html += '<img class="q-image" src="' + q.image + '" alt="PowerPoint reference image" />';
+          }
+          html += '</span>';
+          html += '      <span class="marks">[' + formatMarks(perQuestionMarks) + ' marks]</span>';
+          html += '    </li>';
+        });
+        html += '  </ol>';
+        html += '</section>';
+      });
+
+      host.innerHTML = html;
+    }
+
+    loadData().then(render).catch(function() {
+      document.getElementById('paper').innerHTML = '<p style="padding:20px;">Unable to load dca-data.json</p>';
+    });
+  </script>
+</body>
+</html>

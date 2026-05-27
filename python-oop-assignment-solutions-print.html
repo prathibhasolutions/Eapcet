@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python OOP Assignment Solutions</title>
+  <style>
+    :root {
+      --ink: #1f2937;
+      --muted: #4b5563;
+      --line: #d1d5db;
+      --accent: #0b4f6c;
+      --paper: #ffffff;
+      --bg: #f3f7fa;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.35;
+    }
+
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 10px 14px 14px;
+    }
+
+    .header,
+    .section,
+    .solution-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      margin-bottom: 8px;
+    }
+
+    .header { padding: 10px 12px; }
+
+    .head-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .logo {
+      width: 54px;
+      height: auto;
+    }
+
+    .title-wrap h1 {
+      margin: 0;
+      font-size: 20px;
+      color: var(--accent);
+    }
+
+    .title-wrap p {
+      margin: 2px 0 0;
+      color: var(--muted);
+      font-size: 12.5px;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(120px, 1fr));
+      gap: 8px;
+      font-size: 12.5px;
+    }
+
+    .meta div {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 7px;
+    }
+
+    .meta strong { color: var(--accent); }
+
+    .section-h {
+      background: var(--accent);
+      color: #fff;
+      border-radius: 10px 10px 0 0;
+      padding: 8px 10px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .solutions {
+      padding: 8px 10px 10px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .solution-card {
+      margin: 0;
+      padding: 8px;
+      border-radius: 8px;
+    }
+
+    .q-label {
+      margin: 0 0 5px;
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 13px;
+    }
+
+    .q-text {
+      margin: 0 0 6px;
+      font-size: 12.5px;
+      color: #374151;
+    }
+
+    .sol-label {
+      margin: 0 0 4px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #065f46;
+      text-transform: uppercase;
+      letter-spacing: 0.25px;
+    }
+
+    pre {
+      margin: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 8px;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 12px;
+      line-height: 1.35;
+      color: #111827;
+    }
+
+    @media (max-width: 760px) {
+      .meta { grid-template-columns: repeat(2, minmax(120px, 1fr)); }
+    }
+
+    @media print {
+      @page { size: A4; margin: 9mm 8mm 12mm; }
+      body { background: #fff; }
+      .page { max-width: 100%; padding: 0; }
+      .header { break-inside: avoid; }
+      .section { break-inside: auto; }
+      .solution-card { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page" id="paper"></div>
+
+  <script>
+    function loadData() {
+      return fetch('python-oop-assignment-data.json', { cache: 'no-store' }).then(function(r) {
+        return r.json();
+      });
+    }
+
+    var solutions = {
+      'a-1': 'class Student:\n    def __init__(self, name, roll_no):\n        self.name = name\n        self.roll_no = roll_no\n\n    def __str__(self):\n        return f"Student(name={self.name}, roll_no={self.roll_no})"\n\ns1 = Student("Asha", "101")\ns2 = Student("Rahul", "102")\nprint(s1)\nprint(s2)\n\nConcept: Class is blueprint; object is runtime instance.',
+      'a-2': 'class Employee:\n    company = "Prathibha"  # class variable\n\n    def __init__(self, emp_id, name):\n        self.emp_id = emp_id  # instance variable\n        self.name = name\n\ne1 = Employee("E01", "Meena")\ne2 = Employee("E02", "Kiran")\nprint(Employee.company, e1.emp_id, e2.emp_id)',
+      'a-3': 'class Rectangle:\n    def __init__(self, w, h):\n        self.w = w\n        self.h = h\n\n    def area(self):\n        return self.w * self.h\n\n    def perimeter(self):\n        return 2 * (self.w + self.h)\n\nrects = [Rectangle(2, 3), Rectangle(5, 4), Rectangle(7, 2)]\nfor i, r in enumerate(rects, 1):\n    print(i, r.area(), r.perimeter())',
+      'a-4': 'class BankAccount:\n    def __init__(self, owner, opening_balance):\n        if opening_balance < 0:\n            raise ValueError("Opening balance cannot be negative")\n        self.owner = owner\n        self.balance = opening_balance\n\nacc = BankAccount("Anu", 5000)',
+      'a-5': 'class TemperatureConverter:\n    scale = "C"\n\n    def __init__(self, value):\n        self.value = value\n\n    def to_fahrenheit(self):\n        return (self.value * 9 / 5) + 32\n\n    @classmethod\n    def with_scale(cls, scale):\n        cls.scale = scale\n        return cls\n\n    @staticmethod\n    def c_to_k(c):\n        return c + 273.15',
+
+      'b-1': 'class Wallet:\n    def __init__(self):\n        self.__balance = 0\n\n    def deposit(self, amount):\n        if amount <= 0:\n            raise ValueError("Amount must be positive")\n        self.__balance += amount\n\n    def withdraw(self, amount):\n        if amount > self.__balance:\n            raise ValueError("Insufficient balance")\n        self.__balance -= amount\n\n    def get_balance(self):\n        return self.__balance',
+      'b-2': 'class Product:\n    def __init__(self, name, price):\n        self.name = name\n        self.price = price\n\n    @property\n    def price(self):\n        return self._price\n\n    @price.setter\n    def price(self, value):\n        if value < 0:\n            raise ValueError("Price cannot be negative")\n        self._price = value',
+      'b-3': 'import re\n\nclass UserProfile:\n    def __init__(self, email):\n        self.email = email\n\n    @property\n    def email(self):\n        return self._email\n\n    @email.setter\n    def email(self, value):\n        if not re.match(r"^[^@]+@[^@]+\\.[^@]+$", value):\n            raise ValueError("Invalid email format")\n        self._email = value',
+      'b-4': 'class AttendanceTracker:\n    def __init__(self):\n        self._records = {}\n\n    def mark(self, student, status):\n        if status not in {"P", "A"}:\n            raise ValueError("Use P or A")\n        self._records.setdefault(student, []).append(status)\n\n    def get_summary(self, student):\n        data = self._records.get(student, [])\n        return {"present": data.count("P"), "absent": data.count("A")}',
+      'b-5': 'class InventoryItem:\n    def __init__(self, name, stock):\n        if stock < 0:\n            raise ValueError("Initial stock cannot be negative")\n        self.name = name\n        self.stock = stock\n\n    def add_stock(self, qty):\n        if qty <= 0:\n            raise ValueError("Quantity must be positive")\n        self.stock += qty\n\n    def remove_stock(self, qty):\n        if qty <= 0:\n            raise ValueError("Quantity must be positive")\n        if qty > self.stock:\n            raise ValueError("Cannot remove more than stock")\n        self.stock -= qty',
+
+      'c-1': 'class Vehicle:\n    def start(self):\n        return "Vehicle starting"\n\nclass Car(Vehicle):\n    def start(self):\n        return super().start() + " -> Car ignition on"',
+      'c-2': 'class Person:\n    def __init__(self, name):\n        self.name = name\n\nclass Employee(Person):\n    def __init__(self, name, emp_id):\n        super().__init__(name)\n        self.emp_id = emp_id\n\nclass Manager(Employee):\n    def __init__(self, name, emp_id, team_size):\n        super().__init__(name, emp_id)\n        self.team_size = team_size',
+      'c-3': 'class Camera:\n    def capture(self):\n        return "photo"\n\nclass Phone:\n    def call(self):\n        return "calling"\n\nclass SmartPhone(Camera, Phone):\n    pass\n\nsp = SmartPhone()\nprint(SmartPhone.__mro__)',
+      'c-4': 'class Circle:\n    def __init__(self, r):\n        self.r = r\n    def area(self):\n        return 3.14 * self.r * self.r\n\nclass Rectangle:\n    def __init__(self, w, h):\n        self.w, self.h = w, h\n    def area(self):\n        return self.w * self.h\n\nfor shape in [Circle(3), Rectangle(4, 5)]:\n    print(shape.area())',
+      'c-5': 'class EmailService:\n    def send(self, msg):\n        print("Email:", msg)\n\nclass SMSService:\n    def send(self, msg):\n        print("SMS:", msg)\n\ndef notify(channel, msg):\n    channel.send(msg)\n\nnotify(EmailService(), "Hello")\nnotify(SMSService(), "Hello")',
+
+      'd-1': 'from abc import ABC, abstractmethod\n\nclass Shape(ABC):\n    @abstractmethod\n    def area(self):\n        pass\n\n    @abstractmethod\n    def perimeter(self):\n        pass\n\nclass Square(Shape):\n    def __init__(self, a):\n        self.a = a\n    def area(self):\n        return self.a * self.a\n    def perimeter(self):\n        return 4 * self.a',
+      'd-2': 'class Book:\n    def __init__(self, title, author):\n        self.title = title\n        self.author = author\n\n    def __str__(self):\n        return f"{self.title} by {self.author}"\n\n    def __repr__(self):\n        return f"Book(title={self.title!r}, author={self.author!r})"',
+      'd-3': 'class Vector2D:\n    def __init__(self, x, y):\n        self.x, self.y = x, y\n\n    def __add__(self, other):\n        return Vector2D(self.x + other.x, self.y + other.y)\n\n    def __eq__(self, other):\n        return self.x == other.x and self.y == other.y',
+      'd-4': 'class Playlist:\n    def __init__(self):\n        self.songs = []\n\n    def add(self, song):\n        self.songs.append(song)\n\n    def __len__(self):\n        return len(self.songs)',
+      'd-5': 'class Logger:\n    def __init__(self, path):\n        self.path = path\n        self.file = None\n\n    def __enter__(self):\n        self.file = open(self.path, "a", encoding="utf-8")\n        self.file.write("Session start\\n")\n        return self.file\n\n    def __exit__(self, exc_type, exc, tb):\n        self.file.write("Session end\\n")\n        self.file.close()',
+
+      'e-1': 'Reference capstone structure:\n\nproject/\n  models.py      # Book/Member/Expense/etc.\n  services.py    # business logic\n  main.py        # CLI entry\n  utils.py       # validators/logging\n\nChecklist to satisfy all topics:\n1) classes and objects\n2) inheritance + overriding + super()\n3) encapsulation with property validation\n4) polymorphism through common interface\n5) composition (service owns repository/model objects)\n6) magic methods like __str__ and __len__\n7) exception-safe operations\n8) README with class diagram and sample run output'
+    };
+
+    function render(data) {
+      var exam = data.exams[0];
+      var host = document.getElementById('paper');
+
+      var html = '';
+      html += '<div class="header">';
+      html += '  <div class="head-top">';
+      html += '    <img class="logo" src="assets/logo/prathibha-institute-logo.png" alt="Institute logo" />';
+      html += '    <div class="title-wrap">';
+      html += '      <h1>Python OOP Assignment Solutions</h1>';
+      html += '      <p>Reference solution sheet for: ' + exam.title + '</p>';
+      html += '    </div>';
+      html += '  </div>';
+      html += '  <div class="meta">';
+      html += '    <div><strong>Date</strong><br>' + exam.date + '</div>';
+      html += '    <div><strong>Format</strong><br>Reference Solutions</div>';
+      html += '    <div><strong>Type</strong><br>' + (exam.type || 'Assignment') + '</div>';
+      html += '    <div><strong>Scope</strong><br>All sections</div>';
+      html += '  </div>';
+      html += '</div>';
+
+      exam.sections.forEach(function(section) {
+        html += '<section class="section">';
+        html += '  <div class="section-h">' + section.title + ' - Solutions</div>';
+        html += '  <div class="solutions">';
+
+        section.questions.forEach(function(q, idx) {
+          var key = q.id;
+          var sol = solutions[key] || 'No solution mapped yet for this question id.';
+          html += '    <article class="solution-card">';
+          html += '      <p class="q-label">Q' + (idx + 1) + '.</p>';
+          html += '      <p class="q-text">' + q.text + '</p>';
+          html += '      <p class="sol-label">Reference Solution</p>';
+          html += '      <pre>' + sol
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;') + '</pre>';
+          html += '    </article>';
+        });
+
+        html += '  </div>';
+        html += '</section>';
+      });
+
+      host.innerHTML = html;
+    }
+
+    loadData().then(render).catch(function() {
+      document.getElementById('paper').innerHTML = '<p style="padding:20px;">Unable to load python-oop-assignment-data.json</p>';
+    });
+  </script>
+</body>
+</html>
