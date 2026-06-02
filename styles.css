@@ -422,18 +422,24 @@ legend {
 
 .section-tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: 6px;
   margin-bottom: 10px;
 }
 
 .tab {
-  flex: 1;
+  flex: 1 1 calc(50% - 6px);
+  min-width: 0;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: #f8fbff;
   padding: 8px;
   cursor: pointer;
   font-weight: 600;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  line-height: 1.2;
 }
 
 .tab.active {
