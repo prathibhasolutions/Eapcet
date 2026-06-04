@@ -1,0 +1,1256 @@
+{
+  "exams": [
+    {
+      "id": "pc-162-grand-test-2",
+      "title": "Paper Code 162 Grand Test 2 - Office Automation (CBT)",
+      "date": "2026-06-04",
+      "durationMinutes": 60,
+      "marksPerQuestion": 1,
+      "negativeMark": 0,
+      "qualifyingMarks": 40,
+      "sections": [
+        {
+          "key": "os-workspace",
+          "title": "Operating System & Digital Workspace Management",
+          "count": 20,
+          "start": 1,
+          "end": 20
+        },
+        {
+          "key": "word-processing",
+          "title": "Word Processing",
+          "count": 20,
+          "start": 21,
+          "end": 40
+        },
+        {
+          "key": "spreadsheet-skills",
+          "title": "Spreadsheet Skills",
+          "count": 20,
+          "start": 41,
+          "end": 60
+        },
+        {
+          "key": "presentation-skills",
+          "title": "Presentation Skills",
+          "count": 20,
+          "start": 61,
+          "end": 80
+        },
+        {
+          "key": "email-calendar",
+          "title": "Email & Calendar Management",
+          "count": 20,
+          "start": 81,
+          "end": 100
+        }
+      ],
+      "questions": [
+        {
+          "id": "os-1",
+          "section": "Operating System & Digital Workspace Management",
+          "text": "Which shortcut opens Windows Settings directly?",
+          "options": [
+            { "id": "A", "text": "Windows + I" },
+            { "id": "B", "text": "Ctrl + I" },
+            { "id": "C", "text": "Alt + I" },
+            { "id": "D", "text": "Shift + I" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "os-2",
+          "section": "Operating System & Digital Workspace Management",
+          "text": "Which feature allows restoring accidentally deleted files in Windows?",
+          "options": [
+            { "id": "A", "text": "Clipboard" },
+            { "id": "B", "text": "Recycle Bin" },
+            { "id": "C", "text": "Quick Access" },
+            { "id": "D", "text": "Taskbar" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "os-3",
+          "section": "Operating System & Digital Workspace Management",
+          "text": "Which tool is used to remove temporary files and free disk space?",
+          "options": [
+            { "id": "A", "text": "Disk Cleanup" },
+            { "id": "B", "text": "Character Map" },
+            { "id": "C", "text": "Magnifier" },
+            { "id": "D", "text": "Snipping Tool" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "os-4",
+          "section": "Operating System & Digital Workspace Management",
+          "text": "To select all files in a folder, which shortcut is commonly used?",
+          "options": [
+            { "id": "A", "text": "Ctrl + A" },
+            { "id": "B", "text": "Ctrl + S" },
+            { "id": "C", "text": "Ctrl + P" },
+            { "id": "D", "text": "Ctrl + F" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "os-5",
+          "section": "Operating System & Digital Workspace Management",
+          "text": "Which file format is generally safer for read-only sharing of final circulars?",
+          "options": [
+            { "id": "A", "text": ".tmp" },
+            { "id": "B", "text": ".bat" },
+            { "id": "C", "text": ".pdf" },
+            { "id": "D", "text": ".ps1" }
+          ],
+          "correct": "C"
+        },
+        {
+          "id": "os-6",
+          "section": "Operating System & Digital Workspace Management",
+          "text": "Which view in Task Manager shows startup impact of applications?",
+          "options": [
+            { "id": "A", "text": "Processes" },
+            { "id": "B", "text": "Startup" },
+            { "id": "C", "text": "Users" },
+            { "id": "D", "text": "Services" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "os-7",
+          "section": "Operating System & Digital Workspace Management",
+          "text": "What is the main purpose of creating folders and subfolders in office systems?",
+          "options": [
+            { "id": "A", "text": "Increase CPU speed" },
+            { "id": "B", "text": "Organize files logically" },
+            { "id": "C", "text": "Disable antivirus" },
+            { "id": "D", "text": "Reduce monitor brightness" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "os-8",
+          "section": "Operating System & Digital Workspace Management",
+          "text": "Which shortcut opens the search feature in many Windows versions?",
+          "options": [
+            { "id": "A", "text": "Windows + S" },
+            { "id": "B", "text": "Ctrl + S" },
+            { "id": "C", "text": "Alt + S" },
+            { "id": "D", "text": "Shift + S" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "os-9",
+          "section": "Operating System & Digital Workspace Management",
+          "text": "Which operation moves a file to another location while removing it from the original place?",
+          "options": [
+            { "id": "A", "text": "Copy" },
+            { "id": "B", "text": "Paste" },
+            { "id": "C", "text": "Cut" },
+            { "id": "D", "text": "Rename" }
+          ],
+          "correct": "C"
+        },
+        {
+          "id": "os-10",
+          "section": "Operating System & Digital Workspace Management",
+          "text": "Which option in File Explorer helps display hidden files?",
+          "options": [
+            { "id": "A", "text": "View settings" },
+            { "id": "B", "text": "Print settings" },
+            { "id": "C", "text": "Language settings" },
+            { "id": "D", "text": "Power settings" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "os-11",
+          "section": "Operating System & Digital Workspace Management",
+          "text": "What does two-factor authentication add to account security?",
+          "options": [
+            { "id": "A", "text": "A second verification step" },
+            { "id": "B", "text": "Automatic password sharing" },
+            { "id": "C", "text": "Screen color change" },
+            { "id": "D", "text": "Faster internet" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "os-12",
+          "section": "Operating System & Digital Workspace Management",
+          "text": "Which storage option is typically fastest for boot and app loading?",
+          "options": [
+            { "id": "A", "text": "DVD" },
+            { "id": "B", "text": "SSD" },
+            { "id": "C", "text": "Floppy disk" },
+            { "id": "D", "text": "Tape drive" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "os-13",
+          "section": "Operating System & Digital Workspace Management",
+          "text": "To quickly show desktop from any window, which shortcut is used?",
+          "options": [
+            { "id": "A", "text": "Windows + D" },
+            { "id": "B", "text": "Ctrl + D" },
+            { "id": "C", "text": "Alt + D" },
+            { "id": "D", "text": "Shift + D" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "os-14",
+          "section": "Operating System & Digital Workspace Management",
+          "text": "Which is the best practice before installing unknown software?",
+          "options": [
+            { "id": "A", "text": "Disable antivirus permanently" },
+            { "id": "B", "text": "Verify source and permissions" },
+            { "id": "C", "text": "Share admin password" },
+            { "id": "D", "text": "Turn off firewall" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "os-15",
+          "section": "Operating System & Digital Workspace Management",
+          "text": "In office data handling, regular backups are mainly for:",
+          "options": [
+            { "id": "A", "text": "Data recovery after loss" },
+            { "id": "B", "text": "Increasing font size" },
+            { "id": "C", "text": "Changing keyboard layout" },
+            { "id": "D", "text": "Disabling updates" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "os-16",
+          "section": "Operating System & Digital Workspace Management",
+          "text": "Which keyboard key is often used to refresh a webpage or folder view?",
+          "options": [
+            { "id": "A", "text": "F5" },
+            { "id": "B", "text": "F1" },
+            { "id": "C", "text": "F3" },
+            { "id": "D", "text": "F9" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "os-17",
+          "section": "Operating System & Digital Workspace Management",
+          "text": "Which application category is used to scan and remove malicious software?",
+          "options": [
+            { "id": "A", "text": "Spreadsheet" },
+            { "id": "B", "text": "Antivirus" },
+            { "id": "C", "text": "Presentation" },
+            { "id": "D", "text": "Word processor" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "os-18",
+          "section": "Operating System & Digital Workspace Management",
+          "text": "Which shortcut pastes copied content?",
+          "options": [
+            { "id": "A", "text": "Ctrl + V" },
+            { "id": "B", "text": "Ctrl + P" },
+            { "id": "C", "text": "Ctrl + R" },
+            { "id": "D", "text": "Ctrl + Q" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "os-19",
+          "section": "Operating System & Digital Workspace Management",
+          "text": "What is the benefit of pinning frequently used apps to the taskbar?",
+          "options": [
+            { "id": "A", "text": "Faster access" },
+            { "id": "B", "text": "Automatic translation" },
+            { "id": "C", "text": "Higher disk space" },
+            { "id": "D", "text": "Reduced RAM to zero" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "os-20",
+          "section": "Operating System & Digital Workspace Management",
+          "text": "When sharing a public PC, which step should be done after work?",
+          "options": [
+            { "id": "A", "text": "Leave account logged in" },
+            { "id": "B", "text": "Save passwords in browser prompt" },
+            { "id": "C", "text": "Sign out from all sessions" },
+            { "id": "D", "text": "Disable lock screen" }
+          ],
+          "correct": "C"
+        },
+
+        {
+          "id": "wp-1",
+          "section": "Word Processing",
+          "text": "Which tab in MS Word usually contains font size and bold controls?",
+          "options": [
+            { "id": "A", "text": "Insert" },
+            { "id": "B", "text": "Home" },
+            { "id": "C", "text": "Review" },
+            { "id": "D", "text": "View" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "wp-2",
+          "section": "Word Processing",
+          "text": "Shortcut for saving a document is:",
+          "options": [
+            { "id": "A", "text": "Ctrl + S" },
+            { "id": "B", "text": "Ctrl + N" },
+            { "id": "C", "text": "Ctrl + B" },
+            { "id": "D", "text": "Ctrl + W" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "wp-3",
+          "section": "Word Processing",
+          "text": "Which alignment places text evenly against both left and right margins?",
+          "options": [
+            { "id": "A", "text": "Center" },
+            { "id": "B", "text": "Left" },
+            { "id": "C", "text": "Justify" },
+            { "id": "D", "text": "Right" }
+          ],
+          "correct": "C"
+        },
+        {
+          "id": "wp-4",
+          "section": "Word Processing",
+          "text": "Which feature is best to apply a consistent heading style throughout a report?",
+          "options": [
+            { "id": "A", "text": "WordArt" },
+            { "id": "B", "text": "Styles" },
+            { "id": "C", "text": "Comments" },
+            { "id": "D", "text": "Translate" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "wp-5",
+          "section": "Word Processing",
+          "text": "To insert page numbers in a document, which tab is primarily used?",
+          "options": [
+            { "id": "A", "text": "Design" },
+            { "id": "B", "text": "References" },
+            { "id": "C", "text": "Insert" },
+            { "id": "D", "text": "Mailings" }
+          ],
+          "correct": "C"
+        },
+        {
+          "id": "wp-6",
+          "section": "Word Processing",
+          "text": "What does Track Changes help with?",
+          "options": [
+            { "id": "A", "text": "Converting text to image" },
+            { "id": "B", "text": "Reviewing edits by multiple users" },
+            { "id": "C", "text": "Sending emails" },
+            { "id": "D", "text": "Encrypting USB drives" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "wp-7",
+          "section": "Word Processing",
+          "text": "Which shortcut makes selected text italic?",
+          "options": [
+            { "id": "A", "text": "Ctrl + U" },
+            { "id": "B", "text": "Ctrl + I" },
+            { "id": "C", "text": "Ctrl + L" },
+            { "id": "D", "text": "Ctrl + T" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "wp-8",
+          "section": "Word Processing",
+          "text": "Which option creates a list with 1, 2, 3 numbering automatically?",
+          "options": [
+            { "id": "A", "text": "Bullets" },
+            { "id": "B", "text": "Numbering" },
+            { "id": "C", "text": "Sort" },
+            { "id": "D", "text": "Merge" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "wp-9",
+          "section": "Word Processing",
+          "text": "Find and Replace is useful for:",
+          "options": [
+            { "id": "A", "text": "Changing repeated text quickly" },
+            { "id": "B", "text": "Creating new slides" },
+            { "id": "C", "text": "Installing fonts" },
+            { "id": "D", "text": "Printing envelopes only" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "wp-10",
+          "section": "Word Processing",
+          "text": "Which file extension is the default for modern Word documents?",
+          "options": [
+            { "id": "A", "text": ".txt" },
+            { "id": "B", "text": ".docx" },
+            { "id": "C", "text": ".rtf" },
+            { "id": "D", "text": ".pptx" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "wp-11",
+          "section": "Word Processing",
+          "text": "Headers and footers are commonly used to display:",
+          "options": [
+            { "id": "A", "text": "Document metadata like title or page number" },
+            { "id": "B", "text": "Only images" },
+            { "id": "C", "text": "Database records" },
+            { "id": "D", "text": "Operating system logs" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "wp-12",
+          "section": "Word Processing",
+          "text": "Which command checks spelling and grammar in Word?",
+          "options": [
+            { "id": "A", "text": "Mail Merge" },
+            { "id": "B", "text": "Spelling & Grammar" },
+            { "id": "C", "text": "Protect Document" },
+            { "id": "D", "text": "Compare" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "wp-13",
+          "section": "Word Processing",
+          "text": "A page break is inserted to:",
+          "options": [
+            { "id": "A", "text": "Move cursor to next line" },
+            { "id": "B", "text": "Start content on a new page" },
+            { "id": "C", "text": "Delete a section" },
+            { "id": "D", "text": "Hide text permanently" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "wp-14",
+          "section": "Word Processing",
+          "text": "Which view helps verify the final printed appearance?",
+          "options": [
+            { "id": "A", "text": "Read Mode" },
+            { "id": "B", "text": "Web Layout" },
+            { "id": "C", "text": "Print Preview" },
+            { "id": "D", "text": "Outline" }
+          ],
+          "correct": "C"
+        },
+        {
+          "id": "wp-15",
+          "section": "Word Processing",
+          "text": "What is the use of Mail Merge in office communication?",
+          "options": [
+            { "id": "A", "text": "Send personalized letters to many recipients" },
+            { "id": "B", "text": "Compress images" },
+            { "id": "C", "text": "Run macros" },
+            { "id": "D", "text": "Change page orientation automatically" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "wp-16",
+          "section": "Word Processing",
+          "text": "Shortcut for undoing the last action is:",
+          "options": [
+            { "id": "A", "text": "Ctrl + Y" },
+            { "id": "B", "text": "Ctrl + Z" },
+            { "id": "C", "text": "Ctrl + Shift + Z" },
+            { "id": "D", "text": "Alt + Z" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "wp-17",
+          "section": "Word Processing",
+          "text": "To create a table in Word, you typically use:",
+          "options": [
+            { "id": "A", "text": "Insert > Table" },
+            { "id": "B", "text": "Review > Restrict Editing" },
+            { "id": "C", "text": "View > Navigation Pane" },
+            { "id": "D", "text": "File > Info" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "wp-18",
+          "section": "Word Processing",
+          "text": "Which option changes page orientation to landscape?",
+          "options": [
+            { "id": "A", "text": "References > Captions" },
+            { "id": "B", "text": "Layout > Orientation" },
+            { "id": "C", "text": "Insert > Shapes" },
+            { "id": "D", "text": "Review > Language" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "wp-19",
+          "section": "Word Processing",
+          "text": "What does Ctrl + P do in Word?",
+          "options": [
+            { "id": "A", "text": "Paste text" },
+            { "id": "B", "text": "Open print dialog" },
+            { "id": "C", "text": "Insert page number" },
+            { "id": "D", "text": "Protect document" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "wp-20",
+          "section": "Word Processing",
+          "text": "Which element helps quickly jump to headings in a long report?",
+          "options": [
+            { "id": "A", "text": "Navigation Pane" },
+            { "id": "B", "text": "Status Bar" },
+            { "id": "C", "text": "Zoom Slider" },
+            { "id": "D", "text": "Clipboard" }
+          ],
+          "correct": "A"
+        },
+
+        {
+          "id": "ss-1",
+          "section": "Spreadsheet Skills",
+          "text": "Which symbol starts a formula in most spreadsheets?",
+          "options": [
+            { "id": "A", "text": "#" },
+            { "id": "B", "text": "=" },
+            { "id": "C", "text": "@" },
+            { "id": "D", "text": "&" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "ss-2",
+          "section": "Spreadsheet Skills",
+          "text": "Which function adds values in a selected range?",
+          "options": [
+            { "id": "A", "text": "SUM" },
+            { "id": "B", "text": "AVG" },
+            { "id": "C", "text": "MAXX" },
+            { "id": "D", "text": "CNT" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ss-3",
+          "section": "Spreadsheet Skills",
+          "text": "Cell reference B3 indicates:",
+          "options": [
+            { "id": "A", "text": "Column 3, Row B" },
+            { "id": "B", "text": "Row 3, Column B" },
+            { "id": "C", "text": "Block 3" },
+            { "id": "D", "text": "Sheet B" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "ss-4",
+          "section": "Spreadsheet Skills",
+          "text": "Which feature orders records by values, such as from highest to lowest?",
+          "options": [
+            { "id": "A", "text": "Sort" },
+            { "id": "B", "text": "Merge" },
+            { "id": "C", "text": "Freeze" },
+            { "id": "D", "text": "Wrap" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ss-5",
+          "section": "Spreadsheet Skills",
+          "text": "To show only records matching criteria, use:",
+          "options": [
+            { "id": "A", "text": "Filter" },
+            { "id": "B", "text": "Spell Check" },
+            { "id": "C", "text": "Protect Sheet" },
+            { "id": "D", "text": "Find" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ss-6",
+          "section": "Spreadsheet Skills",
+          "text": "Which chart is best for showing parts of a whole at one time?",
+          "options": [
+            { "id": "A", "text": "Pie chart" },
+            { "id": "B", "text": "Scatter chart" },
+            { "id": "C", "text": "Stock chart" },
+            { "id": "D", "text": "Radar chart" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ss-7",
+          "section": "Spreadsheet Skills",
+          "text": "What is the use of Autofill in spreadsheets?",
+          "options": [
+            { "id": "A", "text": "Auto printing all sheets" },
+            { "id": "B", "text": "Extending patterns or formulas quickly" },
+            { "id": "C", "text": "Automatic email sending" },
+            { "id": "D", "text": "Converting to PDF" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "ss-8",
+          "section": "Spreadsheet Skills",
+          "text": "Which function returns the largest value in a range?",
+          "options": [
+            { "id": "A", "text": "MIN" },
+            { "id": "B", "text": "MAX" },
+            { "id": "C", "text": "TOP" },
+            { "id": "D", "text": "HIGH" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "ss-9",
+          "section": "Spreadsheet Skills",
+          "text": "Which number format is appropriate for percentages?",
+          "options": [
+            { "id": "A", "text": "Currency" },
+            { "id": "B", "text": "Date" },
+            { "id": "C", "text": "Percentage" },
+            { "id": "D", "text": "Scientific" }
+          ],
+          "correct": "C"
+        },
+        {
+          "id": "ss-10",
+          "section": "Spreadsheet Skills",
+          "text": "If you want a heading row to remain visible while scrolling, use:",
+          "options": [
+            { "id": "A", "text": "Freeze Panes" },
+            { "id": "B", "text": "Split Text" },
+            { "id": "C", "text": "Conditional Formatting" },
+            { "id": "D", "text": "Data Validation" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ss-11",
+          "section": "Spreadsheet Skills",
+          "text": "Which feature highlights cells meeting a rule (for example, above target)?",
+          "options": [
+            { "id": "A", "text": "Conditional Formatting" },
+            { "id": "B", "text": "Goal Seek" },
+            { "id": "C", "text": "Pivot Chart" },
+            { "id": "D", "text": "Name Manager" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ss-12",
+          "section": "Spreadsheet Skills",
+          "text": "What does COUNT function do?",
+          "options": [
+            { "id": "A", "text": "Counts numeric cells" },
+            { "id": "B", "text": "Counts only text cells" },
+            { "id": "C", "text": "Counts charts" },
+            { "id": "D", "text": "Counts worksheets" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ss-13",
+          "section": "Spreadsheet Skills",
+          "text": "Which operation combines adjacent cells into one cell?",
+          "options": [
+            { "id": "A", "text": "Consolidate" },
+            { "id": "B", "text": "Merge" },
+            { "id": "C", "text": "Group" },
+            { "id": "D", "text": "Filter" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "ss-14",
+          "section": "Spreadsheet Skills",
+          "text": "Which function finds the average of values?",
+          "options": [
+            { "id": "A", "text": "MEAN" },
+            { "id": "B", "text": "AVERAGE" },
+            { "id": "C", "text": "MID" },
+            { "id": "D", "text": "MODEX" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "ss-15",
+          "section": "Spreadsheet Skills",
+          "text": "To prevent invalid entries in a cell, which feature is used?",
+          "options": [
+            { "id": "A", "text": "Data Validation" },
+            { "id": "B", "text": "Text to Columns" },
+            { "id": "C", "text": "Goal Seek" },
+            { "id": "D", "text": "Smart Lookup" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ss-16",
+          "section": "Spreadsheet Skills",
+          "text": "Shortcut for editing active cell content in Excel is usually:",
+          "options": [
+            { "id": "A", "text": "F2" },
+            { "id": "B", "text": "F4" },
+            { "id": "C", "text": "F7" },
+            { "id": "D", "text": "F10" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ss-17",
+          "section": "Spreadsheet Skills",
+          "text": "Which formula counts non-empty cells in a range?",
+          "options": [
+            { "id": "A", "text": "COUNT" },
+            { "id": "B", "text": "COUNTA" },
+            { "id": "C", "text": "COUNTBLANK" },
+            { "id": "D", "text": "COUNTIF" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "ss-18",
+          "section": "Spreadsheet Skills",
+          "text": "Which function returns the smallest value in a range?",
+          "options": [
+            { "id": "A", "text": "LOW" },
+            { "id": "B", "text": "MIN" },
+            { "id": "C", "text": "BOTTOM" },
+            { "id": "D", "text": "SMALLVAL" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "ss-19",
+          "section": "Spreadsheet Skills",
+          "text": "Which key is commonly used to insert current date in many spreadsheet setups?",
+          "options": [
+            { "id": "A", "text": "Ctrl + ;" },
+            { "id": "B", "text": "Ctrl + :" },
+            { "id": "C", "text": "Alt + ;" },
+            { "id": "D", "text": "Shift + ;" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ss-20",
+          "section": "Spreadsheet Skills",
+          "text": "Pivot Table is mainly used for:",
+          "options": [
+            { "id": "A", "text": "Data summarization and analysis" },
+            { "id": "B", "text": "Drawing freehand shapes" },
+            { "id": "C", "text": "Sending bulk emails" },
+            { "id": "D", "text": "Installing templates" }
+          ],
+          "correct": "A"
+        },
+
+        {
+          "id": "ps-1",
+          "section": "Presentation Skills",
+          "text": "Which PowerPoint view is used to see all slides as thumbnails?",
+          "options": [
+            { "id": "A", "text": "Slide Sorter" },
+            { "id": "B", "text": "Notes Page" },
+            { "id": "C", "text": "Reading View" },
+            { "id": "D", "text": "Presenter View" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ps-2",
+          "section": "Presentation Skills",
+          "text": "A slide master helps to:",
+          "options": [
+            { "id": "A", "text": "Apply uniform design to all slides" },
+            { "id": "B", "text": "Fix internet issues" },
+            { "id": "C", "text": "Encrypt files" },
+            { "id": "D", "text": "Create formulas" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ps-3",
+          "section": "Presentation Skills",
+          "text": "Which tab usually contains options for inserting pictures and charts?",
+          "options": [
+            { "id": "A", "text": "Insert" },
+            { "id": "B", "text": "Slide Show" },
+            { "id": "C", "text": "Review" },
+            { "id": "D", "text": "Transitions" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ps-4",
+          "section": "Presentation Skills",
+          "text": "What is a transition in PowerPoint?",
+          "options": [
+            { "id": "A", "text": "Animation between slides" },
+            { "id": "B", "text": "Spell check tool" },
+            { "id": "C", "text": "File compression type" },
+            { "id": "D", "text": "Slide notes section" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ps-5",
+          "section": "Presentation Skills",
+          "text": "What is the main purpose of speaker notes?",
+          "options": [
+            { "id": "A", "text": "Store hidden presenter prompts" },
+            { "id": "B", "text": "Replace slide titles" },
+            { "id": "C", "text": "Lock the slideshow" },
+            { "id": "D", "text": "Create backups" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ps-6",
+          "section": "Presentation Skills",
+          "text": "Which shortcut starts slideshow from the beginning?",
+          "options": [
+            { "id": "A", "text": "F5" },
+            { "id": "B", "text": "Shift + F5" },
+            { "id": "C", "text": "Ctrl + F5" },
+            { "id": "D", "text": "Alt + F5" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ps-7",
+          "section": "Presentation Skills",
+          "text": "Shift + F5 in PowerPoint usually starts slide show from:",
+          "options": [
+            { "id": "A", "text": "First slide" },
+            { "id": "B", "text": "Current slide" },
+            { "id": "C", "text": "Last slide" },
+            { "id": "D", "text": "Random slide" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "ps-8",
+          "section": "Presentation Skills",
+          "text": "Which principle improves readability of projected slides?",
+          "options": [
+            { "id": "A", "text": "Small text and dense paragraphs" },
+            { "id": "B", "text": "High contrast and concise points" },
+            { "id": "C", "text": "Many bright backgrounds" },
+            { "id": "D", "text": "No headings" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "ps-9",
+          "section": "Presentation Skills",
+          "text": "Which command duplicates a selected slide quickly?",
+          "options": [
+            { "id": "A", "text": "Duplicate Slide" },
+            { "id": "B", "text": "Merge Shapes" },
+            { "id": "C", "text": "Reuse Slides" },
+            { "id": "D", "text": "Broadcast Slide Show" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ps-10",
+          "section": "Presentation Skills",
+          "text": "Which object is best for displaying numeric trends over time in slides?",
+          "options": [
+            { "id": "A", "text": "SmartArt process" },
+            { "id": "B", "text": "Chart" },
+            { "id": "C", "text": "WordArt" },
+            { "id": "D", "text": "Screenshot" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "ps-11",
+          "section": "Presentation Skills",
+          "text": "Which option allows rehearsal of slide timing?",
+          "options": [
+            { "id": "A", "text": "Rehearse Timings" },
+            { "id": "B", "text": "Inspect Document" },
+            { "id": "C", "text": "Compress Media" },
+            { "id": "D", "text": "Reset Slide" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ps-12",
+          "section": "Presentation Skills",
+          "text": "To embed an audio clip in a presentation, use:",
+          "options": [
+            { "id": "A", "text": "Insert > Audio" },
+            { "id": "B", "text": "Design > Variants" },
+            { "id": "C", "text": "Review > Language" },
+            { "id": "D", "text": "File > Account" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ps-13",
+          "section": "Presentation Skills",
+          "text": "What does Presenter View provide?",
+          "options": [
+            { "id": "A", "text": "Private notes and timer for presenter" },
+            { "id": "B", "text": "Permanent watermark" },
+            { "id": "C", "text": "Spreadsheet formulas" },
+            { "id": "D", "text": "File recovery mode" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ps-14",
+          "section": "Presentation Skills",
+          "text": "Which extension is commonly used for PowerPoint files?",
+          "options": [
+            { "id": "A", "text": ".xlsx" },
+            { "id": "B", "text": ".pptx" },
+            { "id": "C", "text": ".docx" },
+            { "id": "D", "text": ".accdb" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "ps-15",
+          "section": "Presentation Skills",
+          "text": "Animations should generally be used in official briefings to:",
+          "options": [
+            { "id": "A", "text": "Support focus, not distract audience" },
+            { "id": "B", "text": "Fill empty time only" },
+            { "id": "C", "text": "Replace slide content" },
+            { "id": "D", "text": "Hide factual errors" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ps-16",
+          "section": "Presentation Skills",
+          "text": "Which keyboard key advances to next slide during slide show?",
+          "options": [
+            { "id": "A", "text": "Esc" },
+            { "id": "B", "text": "Enter" },
+            { "id": "C", "text": "Backspace" },
+            { "id": "D", "text": "Ctrl" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "ps-17",
+          "section": "Presentation Skills",
+          "text": "Which command exports presentation as a PDF handout?",
+          "options": [
+            { "id": "A", "text": "File > Export or Save As PDF" },
+            { "id": "B", "text": "Design > Themes" },
+            { "id": "C", "text": "Review > Protect" },
+            { "id": "D", "text": "Slide Show > Hide Slide" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ps-18",
+          "section": "Presentation Skills",
+          "text": "What does a template provide in PowerPoint?",
+          "options": [
+            { "id": "A", "text": "Predefined design and layout structure" },
+            { "id": "B", "text": "Internet modem settings" },
+            { "id": "C", "text": "Spreadsheet pivot rules" },
+            { "id": "D", "text": "Printer drivers" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ps-19",
+          "section": "Presentation Skills",
+          "text": "Which option hides a slide from presentation without deleting it?",
+          "options": [
+            { "id": "A", "text": "Hide Slide" },
+            { "id": "B", "text": "Lock Slide" },
+            { "id": "C", "text": "Mute Slide" },
+            { "id": "D", "text": "Archive Slide" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ps-20",
+          "section": "Presentation Skills",
+          "text": "To maintain consistency, where should official department logo be added?",
+          "options": [
+            { "id": "A", "text": "Randomly on each slide" },
+            { "id": "B", "text": "Slide Master" },
+            { "id": "C", "text": "Notes pane only" },
+            { "id": "D", "text": "Comments" }
+          ],
+          "correct": "B"
+        },
+
+        {
+          "id": "ec-1",
+          "section": "Email & Calendar Management",
+          "text": "Which email field is used for primary recipients?",
+          "options": [
+            { "id": "A", "text": "To" },
+            { "id": "B", "text": "CC" },
+            { "id": "C", "text": "BCC" },
+            { "id": "D", "text": "Subject" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ec-2",
+          "section": "Email & Calendar Management",
+          "text": "What is the purpose of BCC in emails?",
+          "options": [
+            { "id": "A", "text": "Send with higher priority" },
+            { "id": "B", "text": "Hide recipient addresses from others" },
+            { "id": "C", "text": "Attach large files" },
+            { "id": "D", "text": "Encrypt subject line" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "ec-3",
+          "section": "Email & Calendar Management",
+          "text": "Which subject line is most professional for official communication?",
+          "options": [
+            { "id": "A", "text": "Hi" },
+            { "id": "B", "text": "Need this now" },
+            { "id": "C", "text": "Submission of Monthly Attendance Report - June" },
+            { "id": "D", "text": "Important!!!" }
+          ],
+          "correct": "C"
+        },
+        {
+          "id": "ec-4",
+          "section": "Email & Calendar Management",
+          "text": "Which action helps keep mailbox organized automatically?",
+          "options": [
+            { "id": "A", "text": "Rules/Filters" },
+            { "id": "B", "text": "Reading every email twice" },
+            { "id": "C", "text": "Deleting sent items daily" },
+            { "id": "D", "text": "Turning off search" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ec-5",
+          "section": "Email & Calendar Management",
+          "text": "A meeting invite typically includes:",
+          "options": [
+            { "id": "A", "text": "Date, time, agenda, and participants" },
+            { "id": "B", "text": "Only sender signature" },
+            { "id": "C", "text": "Spreadsheet formulas" },
+            { "id": "D", "text": "Keyboard shortcuts" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ec-6",
+          "section": "Email & Calendar Management",
+          "text": "Which response indicates acceptance of a calendar invitation?",
+          "options": [
+            { "id": "A", "text": "Decline" },
+            { "id": "B", "text": "Tentative" },
+            { "id": "C", "text": "Accept" },
+            { "id": "D", "text": "Forward" }
+          ],
+          "correct": "C"
+        },
+        {
+          "id": "ec-7",
+          "section": "Email & Calendar Management",
+          "text": "Why should large files often be shared as cloud links instead of direct attachments?",
+          "options": [
+            { "id": "A", "text": "To avoid mailbox size issues and allow version updates" },
+            { "id": "B", "text": "To make email unreadable" },
+            { "id": "C", "text": "To disable downloads" },
+            { "id": "D", "text": "To hide sender identity" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ec-8",
+          "section": "Email & Calendar Management",
+          "text": "Which practice improves email security?",
+          "options": [
+            { "id": "A", "text": "Opening all unknown attachments" },
+            { "id": "B", "text": "Verifying sender before clicking links" },
+            { "id": "C", "text": "Using same password for all accounts" },
+            { "id": "D", "text": "Disabling spam filter" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "ec-9",
+          "section": "Email & Calendar Management",
+          "text": "What does CC stand for in email?",
+          "options": [
+            { "id": "A", "text": "Central Copy" },
+            { "id": "B", "text": "Carbon Copy" },
+            { "id": "C", "text": "Common Channel" },
+            { "id": "D", "text": "Calendar Copy" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "ec-10",
+          "section": "Email & Calendar Management",
+          "text": "An out-of-office auto-reply is useful when:",
+          "options": [
+            { "id": "A", "text": "You are unavailable and want to inform senders" },
+            { "id": "B", "text": "You want to delete all mail" },
+            { "id": "C", "text": "You need to block internal messages" },
+            { "id": "D", "text": "You are changing monitor settings" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ec-11",
+          "section": "Email & Calendar Management",
+          "text": "Which feature helps schedule an email to send later?",
+          "options": [
+            { "id": "A", "text": "Delay Delivery / Schedule Send" },
+            { "id": "B", "text": "Mark as Junk" },
+            { "id": "C", "text": "Recall" },
+            { "id": "D", "text": "Archive" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ec-12",
+          "section": "Email & Calendar Management",
+          "text": "What is the main purpose of a calendar reminder?",
+          "options": [
+            { "id": "A", "text": "Notify before event time" },
+            { "id": "B", "text": "Encrypt appointment details" },
+            { "id": "C", "text": "Increase internet speed" },
+            { "id": "D", "text": "Auto-forward all meetings" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ec-13",
+          "section": "Email & Calendar Management",
+          "text": "For formal office mail, the best opening is usually:",
+          "options": [
+            { "id": "A", "text": "Hey there" },
+            { "id": "B", "text": "Dear Sir/Madam" },
+            { "id": "C", "text": "Yo" },
+            { "id": "D", "text": "No greeting" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "ec-14",
+          "section": "Email & Calendar Management",
+          "text": "Which option moves old mails out of inbox while keeping them searchable?",
+          "options": [
+            { "id": "A", "text": "Archive" },
+            { "id": "B", "text": "Delete permanently" },
+            { "id": "C", "text": "Flag" },
+            { "id": "D", "text": "Reply all" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ec-15",
+          "section": "Email & Calendar Management",
+          "text": "When should Reply All be used?",
+          "options": [
+            { "id": "A", "text": "When response is relevant to every listed recipient" },
+            { "id": "B", "text": "For all personal acknowledgements" },
+            { "id": "C", "text": "Only for empty emails" },
+            { "id": "D", "text": "Never" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ec-16",
+          "section": "Email & Calendar Management",
+          "text": "Which file type is typically blocked or risky as email attachment?",
+          "options": [
+            { "id": "A", "text": ".exe" },
+            { "id": "B", "text": ".pdf" },
+            { "id": "C", "text": ".jpg" },
+            { "id": "D", "text": ".docx" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ec-17",
+          "section": "Email & Calendar Management",
+          "text": "Calendar recurring event option is used for:",
+          "options": [
+            { "id": "A", "text": "One-time unsaved draft" },
+            { "id": "B", "text": "Events repeated on a schedule" },
+            { "id": "C", "text": "Spam filtering" },
+            { "id": "D", "text": "Contact import" }
+          ],
+          "correct": "B"
+        },
+        {
+          "id": "ec-18",
+          "section": "Email & Calendar Management",
+          "text": "Why is a clear email signature useful in official communication?",
+          "options": [
+            { "id": "A", "text": "Provides contact details and designation" },
+            { "id": "B", "text": "Converts mail to spreadsheet" },
+            { "id": "C", "text": "Prevents attachments" },
+            { "id": "D", "text": "Deletes sent messages" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ec-19",
+          "section": "Email & Calendar Management",
+          "text": "Which mail action marks an item for follow-up without moving it?",
+          "options": [
+            { "id": "A", "text": "Flag" },
+            { "id": "B", "text": "Delete" },
+            { "id": "C", "text": "Print" },
+            { "id": "D", "text": "Purge" }
+          ],
+          "correct": "A"
+        },
+        {
+          "id": "ec-20",
+          "section": "Email & Calendar Management",
+          "text": "Before sending an official email, the most important final check is:",
+          "options": [
+            { "id": "A", "text": "Correct recipients, subject, and attachments" },
+            { "id": "B", "text": "Add random emojis" },
+            { "id": "C", "text": "Use all caps" },
+            { "id": "D", "text": "Remove signature" }
+          ],
+          "correct": "A"
+        }
+      ]
+    }
+  ]
+}
