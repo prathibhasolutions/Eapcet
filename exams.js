@@ -1,1 +1,73 @@
-window.EXAMS = [];
+window.EXAMS = [
+	{
+		id: "python-basics-001",
+		title: "Python Basics Mock Test 1",
+		date: "2026-06-18",
+		durationMinutes: 30,
+		marksPerQuestion: 1,
+		negativeMark: 0,
+		sections: [
+			{ key: "syntax-variables-comments", title: "Syntax, Variables and Comments", count: 10, start: 1, end: 10 },
+			{ key: "data-types-casting", title: "Data Types and Casting", count: 10, start: 11, end: 20 },
+			{ key: "operators-booleans", title: "Operators and Booleans", count: 10, start: 21, end: 30 },
+			{ key: "strings", title: "Strings", count: 10, start: 31, end: 40 },
+			{ key: "collections", title: "Lists, Tuples, Sets and Dictionaries", count: 10, start: 41, end: 50 }
+		],
+		questions: [
+			{ id: "q1", section: "Syntax, Variables and Comments", text: "Which statement correctly prints Hello in Python?", options: [{ id: "A", text: "print(Hello)" }, { id: "B", text: "print(\"Hello\")" }, { id: "C", text: "echo(\"Hello\")" }, { id: "D", text: "printf(\"Hello\")" }], correct: "B" },
+			{ id: "q2", section: "Syntax, Variables and Comments", text: "Which of the following is a valid Python variable name?", options: [{ id: "A", text: "2name" }, { id: "B", text: "my-name" }, { id: "C", text: "my_name" }, { id: "D", text: "class" }], correct: "C" },
+			{ id: "q3", section: "Syntax, Variables and Comments", text: "Which symbol is used for a single-line comment in Python?", options: [{ id: "A", text: "//" }, { id: "B", text: "#" }, { id: "C", text: "<!--" }, { id: "D", text: "/*" }], correct: "B" },
+			{ id: "q4", section: "Syntax, Variables and Comments", text: "What is the output of x = 5; x += 2; print(x)?", options: [{ id: "A", text: "5" }, { id: "B", text: "7" }, { id: "C", text: "2" }, { id: "D", text: "10" }], correct: "B" },
+			{ id: "q5", section: "Syntax, Variables and Comments", text: "What does input() return in Python 3?", options: [{ id: "A", text: "An integer" }, { id: "B", text: "A float" }, { id: "C", text: "A string" }, { id: "D", text: "A boolean" }], correct: "C" },
+			{ id: "q6", section: "Syntax, Variables and Comments", text: "Which keyword cannot be used as a variable name?", options: [{ id: "A", text: "value" }, { id: "B", text: "count" }, { id: "C", text: "while" }, { id: "D", text: "total" }], correct: "C" },
+			{ id: "q7", section: "Syntax, Variables and Comments", text: "What is the result of assigning the same value to two variables with x = y = 10?", options: [{ id: "A", text: "Only x becomes 10" }, { id: "B", text: "Only y becomes 10" }, { id: "C", text: "Both x and y become 10" }, { id: "D", text: "It is invalid syntax" }], correct: "C" },
+			{ id: "q8", section: "Syntax, Variables and Comments", text: "Which statement about Python identifiers is true?", options: [{ id: "A", text: "They are case-insensitive" }, { id: "B", text: "They can start with a digit" }, { id: "C", text: "They can contain spaces" }, { id: "D", text: "They are case-sensitive" }], correct: "D" },
+			{ id: "q9", section: "Syntax, Variables and Comments", text: "Which of these is commonly used for a multi-line comment or docstring?", options: [{ id: "A", text: "Triple quotes" }, { id: "B", text: "Single slash" }, { id: "C", text: "Curly braces" }, { id: "D", text: "Backticks" }], correct: "A" },
+			{ id: "q10", section: "Syntax, Variables and Comments", text: "What will print( type(x) ) show after x = 10?", options: [{ id: "A", text: "<class 'str'>" }, { id: "B", text: "<class 'int'>" }, { id: "C", text: "<class 'float'>" }, { id: "D", text: "<class 'bool'>" }], correct: "B" },
+
+			{ id: "q11", section: "Data Types and Casting", text: "What is the data type of 10 in Python?", options: [{ id: "A", text: "float" }, { id: "B", text: "int" }, { id: "C", text: "str" }, { id: "D", text: "bool" }], correct: "B" },
+			{ id: "q12", section: "Data Types and Casting", text: "What is the data type of 10.5?", options: [{ id: "A", text: "int" }, { id: "B", text: "float" }, { id: "C", text: "str" }, { id: "D", text: "tuple" }], correct: "B" },
+			{ id: "q13", section: "Data Types and Casting", text: "Which data type is mutable?", options: [{ id: "A", text: "tuple" }, { id: "B", text: "string" }, { id: "C", text: "list" }, { id: "D", text: "int" }], correct: "C" },
+			{ id: "q14", section: "Data Types and Casting", text: "What is the result of int(\"7\") + 3?", options: [{ id: "A", text: "7" }, { id: "B", text: "10" }, { id: "C", text: "73" }, { id: "D", text: "Error" }], correct: "B" },
+			{ id: "q15", section: "Data Types and Casting", text: "What is bool(\"\")?", options: [{ id: "A", text: "True" }, { id: "B", text: "False" }, { id: "C", text: "0" }, { id: "D", text: "Error" }], correct: "B" },
+			{ id: "q16", section: "Data Types and Casting", text: "How do you create a tuple with one element 5?", options: [{ id: "A", text: "(5)" }, { id: "B", text: "[5]" }, { id: "C", text: "(5,)" }, { id: "D", text: "{5}" }], correct: "C" },
+			{ id: "q17", section: "Data Types and Casting", text: "What is the type of None?", options: [{ id: "A", text: "NoneType" }, { id: "B", text: "Null" }, { id: "C", text: "void" }, { id: "D", text: "object" }], correct: "A" },
+			{ id: "q18", section: "Data Types and Casting", text: "What is the result of float(\"3\")?", options: [{ id: "A", text: "3" }, { id: "B", text: "3.0" }, { id: "C", text: "3.3" }, { id: "D", text: "Error" }], correct: "B" },
+			{ id: "q19", section: "Data Types and Casting", text: "What is the data type of {\"a\": 1}?", options: [{ id: "A", text: "list" }, { id: "B", text: "set" }, { id: "C", text: "dict" }, { id: "D", text: "tuple" }], correct: "C" },
+			{ id: "q20", section: "Data Types and Casting", text: "What does str(123) return?", options: [{ id: "A", text: "123" }, { id: "B", text: "'123'" }, { id: "C", text: "\"123\"" }, { id: "D", text: "Both B and C as a string value" }], correct: "D" },
+
+			{ id: "q21", section: "Operators and Booleans", text: "What is the result of 5 // 2?", options: [{ id: "A", text: "2" }, { id: "B", text: "2.5" }, { id: "C", text: "3" }, { id: "D", text: "1" }], correct: "A" },
+			{ id: "q22", section: "Operators and Booleans", text: "What is the result of 5 % 2?", options: [{ id: "A", text: "0" }, { id: "B", text: "1" }, { id: "C", text: "2" }, { id: "D", text: "3" }], correct: "B" },
+			{ id: "q23", section: "Operators and Booleans", text: "What is the result of 2 ** 3?", options: [{ id: "A", text: "6" }, { id: "B", text: "8" }, { id: "C", text: "9" }, { id: "D", text: "5" }], correct: "B" },
+			{ id: "q24", section: "Operators and Booleans", text: "What is the result of 5 == \"5\"?", options: [{ id: "A", text: "True" }, { id: "B", text: "False" }, { id: "C", text: "5" }, { id: "D", text: "Error" }], correct: "B" },
+			{ id: "q25", section: "Operators and Booleans", text: "What does not True evaluate to?", options: [{ id: "A", text: "True" }, { id: "B", text: "False" }, { id: "C", text: "1" }, { id: "D", text: "0" }], correct: "B" },
+			{ id: "q26", section: "Operators and Booleans", text: "What is the result of True and False?", options: [{ id: "A", text: "True" }, { id: "B", text: "False" }, { id: "C", text: "1" }, { id: "D", text: "Error" }], correct: "B" },
+			{ id: "q27", section: "Operators and Booleans", text: "What is the result of 5 > 3 and 2 < 4?", options: [{ id: "A", text: "True" }, { id: "B", text: "False" }, { id: "C", text: "5" }, { id: "D", text: "0" }], correct: "A" },
+			{ id: "q28", section: "Operators and Booleans", text: "Which operator checks membership in Python?", options: [{ id: "A", text: "is" }, { id: "B", text: "in" }, { id: "C", text: "and" }, { id: "D", text: "not" }], correct: "B" },
+			{ id: "q29", section: "Operators and Booleans", text: "What does is usually compare?", options: [{ id: "A", text: "Values only" }, { id: "B", text: "Identity of objects" }, { id: "C", text: "Length of objects" }, { id: "D", text: "Type conversion" }], correct: "B" },
+			{ id: "q30", section: "Operators and Booleans", text: "What is the result of x = 4; x *= 3; print(x)?", options: [{ id: "A", text: "7" }, { id: "B", text: "12" }, { id: "C", text: "43" }, { id: "D", text: "1" }], correct: "B" },
+
+			{ id: "q31", section: "Strings", text: "What is len(\"Python\")?", options: [{ id: "A", text: "5" }, { id: "B", text: "6" }, { id: "C", text: "7" }, { id: "D", text: "8" }], correct: "B" },
+			{ id: "q32", section: "Strings", text: "What is the first character of s = \"cat\" using s[0]?", options: [{ id: "A", text: "a" }, { id: "B", text: "c" }, { id: "C", text: "t" }, { id: "D", text: "Error" }], correct: "B" },
+			{ id: "q33", section: "Strings", text: "What is \"Python\"[1:4]?", options: [{ id: "A", text: "Pyt" }, { id: "B", text: "yth" }, { id: "C", text: "ytho" }, { id: "D", text: "thon" }], correct: "B" },
+			{ id: "q34", section: "Strings", text: "How do you join two strings in Python?", options: [{ id: "A", text: "Using +" }, { id: "B", text: "Using //" }, { id: "C", text: "Using &&" }, { id: "D", text: "Using ::" }], correct: "A" },
+			{ id: "q35", section: "Strings", text: "What does \"Hello\".lower() return?", options: [{ id: "A", text: "HELLO" }, { id: "B", text: "hello" }, { id: "C", text: "Hello" }, { id: "D", text: "hELLO" }], correct: "B" },
+			{ id: "q36", section: "Strings", text: "What does \"banana\".replace(\"a\", \"o\") return?", options: [{ id: "A", text: "bonono" }, { id: "B", text: "banana" }, { id: "C", text: "boonoo" }, { id: "D", text: "banono" }], correct: "A" },
+			{ id: "q37", section: "Strings", text: "Which statement is true about strings in Python?", options: [{ id: "A", text: "They are mutable" }, { id: "B", text: "They are immutable" }, { id: "C", text: "They are unordered and mutable" }, { id: "D", text: "They can only contain letters" }], correct: "B" },
+			{ id: "q38", section: "Strings", text: "How do you include a double quote inside a double-quoted string?", options: [{ id: "A", text: "Use an escape character like \"\\\"\"" }, { id: "B", text: "Use a hashtag" }, { id: "C", text: "Use a comma" }, { id: "D", text: "It is not possible" }], correct: "A" },
+			{ id: "q39", section: "Strings", text: "What does \"python\".find(\"z\") return?", options: [{ id: "A", text: "0" }, { id: "B", text: "-1" }, { id: "C", text: "None" }, { id: "D", text: "Error" }], correct: "B" },
+			{ id: "q40", section: "Strings", text: "Which is a valid f-string example?", options: [{ id: "A", text: "f\"Age: {age}\"" }, { id: "B", text: "s\"Age: {age}\"" }, { id: "C", text: "fmt(\"Age: {age}\")" }, { id: "D", text: "str\"Age: {age}\"" }], correct: "A" },
+
+			{ id: "q41", section: "Lists, Tuples, Sets and Dictionaries", text: "Which method adds an item to the end of a list?", options: [{ id: "A", text: "add()" }, { id: "B", text: "append()" }, { id: "C", text: "insertEnd()" }, { id: "D", text: "push()" }], correct: "B" },
+			{ id: "q42", section: "Lists, Tuples, Sets and Dictionaries", text: "Which list method removes a specific value?", options: [{ id: "A", text: "remove()" }, { id: "B", text: "delete()" }, { id: "C", text: "discard()" }, { id: "D", text: "poplast()" }], correct: "A" },
+			{ id: "q43", section: "Lists, Tuples, Sets and Dictionaries", text: "What is true about tuples?", options: [{ id: "A", text: "They are mutable" }, { id: "B", text: "They are ordered and immutable" }, { id: "C", text: "They do not support indexing" }, { id: "D", text: "They cannot store mixed data types" }], correct: "B" },
+			{ id: "q44", section: "Lists, Tuples, Sets and Dictionaries", text: "What is a key property of sets?", options: [{ id: "A", text: "They allow duplicate values" }, { id: "B", text: "They are indexed by position" }, { id: "C", text: "They store unique items" }, { id: "D", text: "They are always ordered like lists" }], correct: "C" },
+			{ id: "q45", section: "Lists, Tuples, Sets and Dictionaries", text: "What is the union of {1, 2, 3} and {3, 4}?", options: [{ id: "A", text: "{1, 2, 3, 4}" }, { id: "B", text: "{1, 2, 3, 3, 4}" }, { id: "C", text: "{3}" }, { id: "D", text: "{1, 4}" }], correct: "A" },
+			{ id: "q46", section: "Lists, Tuples, Sets and Dictionaries", text: "How do you access the value of the key name in d = {\"name\": \"Ana\"}?", options: [{ id: "A", text: "d.name" }, { id: "B", text: "d[\"name\"]" }, { id: "C", text: "d(\"name\")" }, { id: "D", text: "d{\"name\"}" }], correct: "B" },
+			{ id: "q47", section: "Lists, Tuples, Sets and Dictionaries", text: "What must dictionary keys be?", options: [{ id: "A", text: "Always lists" }, { id: "B", text: "Unique and hashable" }, { id: "C", text: "Always integers" }, { id: "D", text: "Always strings only" }], correct: "B" },
+			{ id: "q48", section: "Lists, Tuples, Sets and Dictionaries", text: "What does the dict method pop(\"a\") do?", options: [{ id: "A", text: "Adds key a" }, { id: "B", text: "Removes and returns the value for key a" }, { id: "C", text: "Sorts the dictionary" }, { id: "D", text: "Clears all keys" }], correct: "B" },
+			{ id: "q49", section: "Lists, Tuples, Sets and Dictionaries", text: "What is the length of set([1, 1, 2, 3])?", options: [{ id: "A", text: "2" }, { id: "B", text: "3" }, { id: "C", text: "4" }, { id: "D", text: "Error" }], correct: "B" },
+			{ id: "q50", section: "Lists, Tuples, Sets and Dictionaries", text: "What is the result of [1, 2, 3][1]?", options: [{ id: "A", text: "1" }, { id: "B", text: "2" }, { id: "C", text: "3" }, { id: "D", text: "Error" }], correct: "B" }
+		]
+	}
+];
