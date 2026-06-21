@@ -549,6 +549,7 @@ legend {
   margin-bottom: 10px;
   background: #ffffff;
   line-height: 1.6;
+  white-space: pre-wrap;
 }
 
 .question-text-wrap:empty {
@@ -616,6 +617,43 @@ legend {
   border-radius: 8px;
   background: #fff;
   object-fit: contain;
+}
+
+.coding-box {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px;
+  background: #fffef7;
+  display: grid;
+  gap: 8px;
+}
+
+.coding-head {
+  margin: 0;
+  font-weight: 700;
+  color: #92400e;
+}
+
+.coding-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.coding-response {
+  width: 100%;
+  min-height: 180px;
+  resize: vertical;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px;
+  font: 14px/1.5 "Consolas", "Courier New", monospace;
+  background: #ffffff;
+}
+
+.modal-coding-note {
+  color: var(--muted);
+  font-size: 13px;
 }
 
 .btn-mark {
@@ -863,6 +901,7 @@ td {
   padding: 10px;
   background: #fff;
   line-height: 1.6;
+  white-space: pre-wrap;
 }
 
 .modal-qtext:empty {

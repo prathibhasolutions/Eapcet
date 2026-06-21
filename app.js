@@ -3,11 +3,13 @@
     exam: null,
     studentName: "",
     answers: {},
+    textResponses: {},
     marked: {},
     keyActivity: [],
     awayStartedAt: 0,
     visited: {},
     currentQuestionIndex: 0,
+    currentSectionIndex: 0,
     currentPaletteSection: "maths",
     timerSeconds: 0,
     timerEndAt: 0,
@@ -76,17 +78,33 @@
 
   function normalizeQuestion(question, index) {
     var q = question && typeof question === "object" ? question : {};
-    var options = Array.isArray(q.options) ? q.options : ["A", "B", "C", "D"];
+    var qType = String(q.type || "mcq").toLowerCase() === "coding" ? "coding" : "mcq";
+    var options = qType === "mcq"
+      ? (Array.isArray(q.options) ? q.options : ["A", "B", "C", "D"])
+      : [];
 
     return {
       id: q.id || ("q-" + (index + 1)),
+      type: qType,
       section: q.section || "General",
       text: q.text != null ? String(q.text) : "",
       image: q.image || q.imageUrl || "",
       imageLarge: !!q.imageLarge,
       options: options.map(function (opt, i) { return toOptionObject(opt, i); }),
-      correct: q.correct || q.correctOption || "A"
+      correct: qType === "mcq" ? (q.correct || q.correctOption || "A") : ""
     };
+  }
+
+  function isCodingQuestion(question) {
+    return !!(question && String(question.type || "mcq").toLowerCase() === "coding");
+  }
+
+  function isQuestionAnswered(question) {
+    if (!question) return false;
+    if (isCodingQuestion(question)) {
+      return !!String((state.textResponses && state.textResponses[question.id]) || "").trim();
+    }
+    return !!(state.answers && state.answers[question.id]);
   }
 
   function buildSectionsFromQuestions(questions) {
@@ -128,7 +146,8 @@
         title: s.title || s.key || "Section",
         count: Number(s.count) || 0,
         start: Number(s.start) || 1,
-        end: Number(s.end) || 1
+        end: Number(s.end) || 1,
+        durationMinutes: Number(s.durationMinutes || 0)
       };
     });
 
@@ -148,11 +167,67 @@
       title: String(exam.title || "Mock Test"),
       date: String(exam.date || new Date().toISOString().slice(0, 10)),
       durationMinutes: Number(exam.durationMinutes || 180),
+      sectionWiseFlow: !!exam.sectionWiseFlow,
       marksPerQuestion: Number(exam.marksPerQuestion || 1),
       negativeMark: Number(exam.negativeMark || 0),
       sections: fixedSections,
       questions: questions
     };
+  }
+
+  function hasSectionFlow() {
+    if (!state.exam || !state.exam.sectionWiseFlow) return false;
+    if (!Array.isArray(state.exam.sections) || !state.exam.sections.length) return false;
+    return state.exam.sections.every(function (s) { return Number(s.durationMinutes || 0) > 0; });
+  }
+
+  function getActiveSection() {
+    if (!state.exam || !state.exam.sections || !state.exam.sections.length) return null;
+    if (!hasSectionFlow()) {
+      return state.exam.sections.find(function (s) { return s.key === state.currentPaletteSection; }) || state.exam.sections[0];
+    }
+    return state.exam.sections[state.currentSectionIndex] || state.exam.sections[0];
+  }
+
+  function getCurrentBounds() {
+    if (!state.exam || !state.exam.questions || !state.exam.questions.length) {
+      return { start: 0, end: 0 };
+    }
+
+    if (!hasSectionFlow()) {
+      return { start: 0, end: state.exam.questions.length - 1 };
+    }
+
+    var sec = getActiveSection();
+    if (!sec) return { start: 0, end: state.exam.questions.length - 1 };
+    return { start: Math.max(0, sec.start - 1), end: Math.max(0, sec.end - 1) };
+  }
+
+  function setTimerForCurrentScope() {
+    if (!state.exam) return;
+    if (hasSectionFlow()) {
+      var sec = getActiveSection();
+      var secDuration = sec ? Number(sec.durationMinutes || 0) : 0;
+      state.timerSeconds = secDuration * 60;
+      state.timerEndAt = Date.now() + (state.timerSeconds * 1000);
+      return;
+    }
+
+    state.timerSeconds = state.exam.durationMinutes * 60;
+    state.timerEndAt = Date.now() + (state.timerSeconds * 1000);
+  }
+
+  function updateSubmitButtonLabel() {
+    var btn = document.getElementById("submitTestBtn");
+    if (!btn) return;
+
+    if (!hasSectionFlow()) {
+      btn.textContent = "Submit Test";
+      return;
+    }
+
+    var isLast = state.currentSectionIndex >= state.exam.sections.length - 1;
+    btn.textContent = isLast ? "Submit Final Section" : "Submit Section";
   }
 
   function readImportedExams() {
@@ -252,10 +327,10 @@
     state.keyActivity = [];
     state.awayStartedAt = 0;
     state.visited = {};
-    state.currentQuestionIndex = 0;
+    state.currentSectionIndex = 0;
     state.currentPaletteSection = state.exam.sections[0] ? state.exam.sections[0].key : "maths";
-    state.timerSeconds = state.exam.durationMinutes * 60;
-    state.timerEndAt = Date.now() + (state.timerSeconds * 1000);
+    state.currentQuestionIndex = state.exam.sections[0] ? Math.max(0, state.exam.sections[0].start - 1) : 0;
+    setTimerForCurrentScope();
     state.submitted = false;
 
     document.getElementById("activeExamTitle").textContent = state.exam.title;
@@ -264,6 +339,7 @@
     renderSectionTabs();
     renderPalette();
     renderQuestion();
+    updateSubmitButtonLabel();
     startTimer();
     showScreen("exam");
     saveExamSession();
@@ -281,7 +357,11 @@
 
       if (state.timerSeconds <= 0) {
         clearInterval(state.timerRef);
-        submitExam(true);
+        if (hasSectionFlow() && state.currentSectionIndex < state.exam.sections.length - 1) {
+          moveToNextSection(true);
+        } else {
+          submitExam(true);
+        }
       }
     }, 1000);
   }
@@ -304,10 +384,15 @@
     tabs.innerHTML = "";
 
     state.exam.sections.forEach(function (sec) {
+      var secIndex = state.exam.sections.indexOf(sec);
       var b = document.createElement("button");
       b.className = "tab" + (sec.key === state.currentPaletteSection ? " active" : "");
       b.textContent = sec.title;
+      if (hasSectionFlow()) {
+        b.disabled = secIndex !== state.currentSectionIndex;
+      }
       b.addEventListener("click", function () {
+        if (hasSectionFlow() && secIndex !== state.currentSectionIndex) return;
         state.currentPaletteSection = sec.key;
         renderSectionTabs();
         renderPalette();
@@ -331,6 +416,7 @@
   }
 
   function getCorrectOptionId(question) {
+    if (isCodingQuestion(question)) return "-";
     if (question && question.correct && typeof question.correct === "object" && question.correct.id) {
       return String(question.correct.id);
     }
@@ -338,6 +424,7 @@
   }
 
   function getOptionList(question) {
+    if (isCodingQuestion(question)) return [];
     if (!question || !Array.isArray(question.options)) return [];
     return question.options.map(function (opt, i) { return toOptionObject(opt, i); });
   }
@@ -374,7 +461,7 @@
 
   function getPaletteBtnClass(qIndex) {
     var q = getQuestionByIndex(qIndex);
-    var answered = !!state.answers[q.id];
+    var answered = isQuestionAnswered(q);
     var isMarked = !!state.marked[q.id];
     var isVisited = !!state.visited[q.id];
     var isCurrent = qIndex === state.currentQuestionIndex;
@@ -395,11 +482,16 @@
     var sec = state.exam.sections.find(function (s) { return s.key === state.currentPaletteSection; });
     if (!sec) return;
 
+    if (hasSectionFlow()) {
+      sec = getActiveSection();
+      state.currentPaletteSection = sec.key;
+    }
+
     for (var i = sec.start; i <= sec.end; i++) {
       (function (qNo) {
         var qIndex = qNo - 1;
         var q = getQuestionByIndex(qIndex);
-        var isMarkedAnswered = !!state.marked[q.id] && !!state.answers[q.id];
+        var isMarkedAnswered = !!state.marked[q.id] && isQuestionAnswered(q);
 
         var btn = document.createElement("button");
         btn.className = getPaletteBtnClass(qIndex);
@@ -411,6 +503,10 @@
         }
 
         btn.addEventListener("click", function () {
+          if (hasSectionFlow()) {
+            var bounds = getCurrentBounds();
+            if (qIndex < bounds.start || qIndex > bounds.end) return;
+          }
           state.currentQuestionIndex = qIndex;
           renderQuestion();
           renderPalette();
@@ -426,6 +522,7 @@
     var q = getQuestionByIndex(qIndex);
     var sec = getSectionByQuestionIndex(qIndex);
     var options = getOptionList(q);
+    var isCoding = isCodingQuestion(q);
 
     state.visited[q.id] = true;
 
@@ -451,61 +548,83 @@
     var wrap = document.getElementById("optionsWrap");
     wrap.innerHTML = "";
 
-    options.forEach(function (opt) {
-      var label = document.createElement("label");
-      label.className = "opt";
+    if (isCoding) {
+      var codingCard = document.createElement("div");
+      codingCard.className = "coding-box";
+      codingCard.innerHTML = ""
+        + "<p class='coding-head'>Coding Question (LeetCode style)</p>"
+        + "<p class='coding-note'>Write your approach or code snippet below. This part is descriptive and requires manual evaluation.</p>";
 
-      var radio = document.createElement("input");
-      radio.type = "radio";
-      radio.name = "option";
-      radio.value = opt.id;
-      radio.checked = selected === opt.id;
-
-      var content = document.createElement("div");
-      content.className = "opt-content";
-
-      var txt = document.createElement("div");
-      txt.className = "opt-text";
-      txt.innerHTML = "<strong>" + escapeHtml(opt.id) + ".</strong> " + escapeMathHtml(opt.text);
-      content.appendChild(txt);
-
-      if (opt.image) {
-        var img = document.createElement("img");
-        img.className = "opt-img";
-        img.alt = "Option " + opt.id;
-        img.src = opt.image;
-        img.onerror = function () {
-          this.onerror = null;
-          this.src = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(
-            '<svg xmlns="http://www.w3.org/2000/svg" width="700" height="160">'
-            + '<rect width="100%" height="100%" fill="#f8fafc"/>'
-            + '<text x="50%" y="50%" text-anchor="middle" fill="#475569" font-size="18" font-family="Arial">Option image missing</text>'
-            + '</svg>'
-          );
-        };
-        content.appendChild(img);
-      }
-
-      label.appendChild(radio);
-      label.appendChild(content);
-      wrap.appendChild(label);
-
-      safeTypeset(txt);
-    });
-
-    wrap.querySelectorAll("input[name='option']").forEach(function (radio) {
-      radio.addEventListener("change", function () {
-        state.answers[q.id] = radio.value;
+      var response = document.createElement("textarea");
+      response.className = "coding-response";
+      response.placeholder = "Type your solution approach / pseudocode / code here...";
+      response.value = String((state.textResponses && state.textResponses[q.id]) || "");
+      response.addEventListener("input", function () {
+        state.textResponses[q.id] = response.value;
         renderPalette();
         saveExamSession();
       });
-    });
+
+      codingCard.appendChild(response);
+      wrap.appendChild(codingCard);
+    } else {
+      options.forEach(function (opt) {
+        var label = document.createElement("label");
+        label.className = "opt";
+
+        var radio = document.createElement("input");
+        radio.type = "radio";
+        radio.name = "option";
+        radio.value = opt.id;
+        radio.checked = selected === opt.id;
+
+        var content = document.createElement("div");
+        content.className = "opt-content";
+
+        var txt = document.createElement("div");
+        txt.className = "opt-text";
+        txt.innerHTML = "<strong>" + escapeHtml(opt.id) + ".</strong> " + escapeMathHtml(opt.text);
+        content.appendChild(txt);
+
+        if (opt.image) {
+          var img = document.createElement("img");
+          img.className = "opt-img";
+          img.alt = "Option " + opt.id;
+          img.src = opt.image;
+          img.onerror = function () {
+            this.onerror = null;
+            this.src = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(
+              '<svg xmlns="http://www.w3.org/2000/svg" width="700" height="160">'
+              + '<rect width="100%" height="100%" fill="#f8fafc"/>'
+              + '<text x="50%" y="50%" text-anchor="middle" fill="#475569" font-size="18" font-family="Arial">Option image missing</text>'
+              + '</svg>'
+            );
+          };
+          content.appendChild(img);
+        }
+
+        label.appendChild(radio);
+        label.appendChild(content);
+        wrap.appendChild(label);
+
+        safeTypeset(txt);
+      });
+
+      wrap.querySelectorAll("input[name='option']").forEach(function (radio) {
+        radio.addEventListener("change", function () {
+          state.answers[q.id] = radio.value;
+          renderPalette();
+          saveExamSession();
+        });
+      });
+    }
 
     var prevBtn = document.getElementById("prevBtn");
     var nextBtn = document.getElementById("nextBtn");
+    var bounds = getCurrentBounds();
 
-    prevBtn.disabled = qIndex === 0;
-    nextBtn.disabled = qIndex === state.exam.questions.length - 1;
+    prevBtn.disabled = qIndex <= bounds.start;
+    nextBtn.disabled = qIndex >= bounds.end;
   }
 
   function wireMarkForReview() {
@@ -523,17 +642,28 @@
   function calculateResult() {
     var correct = 0;
     var attempted = 0;
+    var totalObjective = 0;
     var rows = [];
 
     state.exam.questions.forEach(function (q, idx) {
+      var isCoding = isCodingQuestion(q);
       var correctId = getCorrectOptionId(q);
-      var ans = state.answers[q.id] || "-";
+      var ans = "-";
       var status = "Not Attempted";
-      if (ans !== "-") {
-        attempted += 1;
-        status = ans === correctId ? "Correct" : "Wrong";
+
+      if (isCoding) {
+        var textAns = String((state.textResponses && state.textResponses[q.id]) || "").trim();
+        ans = textAns ? "Provided" : "-";
+        status = textAns ? "Pending Manual Evaluation" : "Not Attempted";
+      } else {
+        totalObjective += 1;
+        ans = state.answers[q.id] || "-";
+        if (ans !== "-") {
+          attempted += 1;
+          status = ans === correctId ? "Correct" : "Wrong";
+        }
+        if (ans === correctId) correct += 1;
       }
-      if (ans === correctId) correct += 1;
 
       rows.push({
         no: idx + 1,
@@ -552,11 +682,30 @@
     var sectionMap = {};
     state.exam.questions.forEach(function (q) {
       var sec = q.section || "General";
-      if (!sectionMap[sec]) sectionMap[sec] = { correct: 0, wrong: 0, total: 0 };
+      if (!sectionMap[sec]) {
+        sectionMap[sec] = {
+          correct: 0,
+          wrong: 0,
+          attempted: 0,
+          total: 0,
+          objectiveTotal: 0,
+          codingTotal: 0,
+          codingAnswered: 0
+        };
+      }
       sectionMap[sec].total += 1;
+      if (isCodingQuestion(q)) {
+        sectionMap[sec].codingTotal += 1;
+        if (String((state.textResponses && state.textResponses[q.id]) || "").trim()) {
+          sectionMap[sec].codingAnswered += 1;
+        }
+        return;
+      }
+      sectionMap[sec].objectiveTotal += 1;
       var correctId = getCorrectOptionId(q);
       var ans = state.answers[q.id] || "-";
       if (ans !== "-") {
+        sectionMap[sec].attempted += 1;
         if (ans === correctId) sectionMap[sec].correct += 1;
         else sectionMap[sec].wrong += 1;
       }
@@ -564,7 +713,19 @@
     var sections = Object.keys(sectionMap).map(function (sec) {
       var s = sectionMap[sec];
       var secScore = (s.correct * state.exam.marksPerQuestion) - (s.wrong * state.exam.negativeMark);
-      return { name: sec, correct: s.correct, wrong: s.wrong, total: s.total, score: secScore };
+      var maxMarks = s.objectiveTotal * state.exam.marksPerQuestion;
+      return {
+        name: sec,
+        correct: s.correct,
+        wrong: s.wrong,
+        attempted: s.attempted,
+        total: s.total,
+        objectiveTotal: s.objectiveTotal,
+        codingTotal: s.codingTotal,
+        codingAnswered: s.codingAnswered,
+        score: secScore,
+        maxMarks: maxMarks
+      };
     });
 
     return {
@@ -573,6 +734,7 @@
       correct: correct,
       wrong: wrong,
       score: score,
+      objectiveTotal: totalObjective,
       sections: sections,
       keyActivity: (state.keyActivity || []).slice(),
       rows: rows
@@ -602,11 +764,18 @@
       var card = document.createElement("div");
       card.className = "sec-score-card";
       card.style.borderColor = color;
-      card.innerHTML = "<div class='sec-score-name' style='color:" + color + "'>" + escapeHtml(s.name) + "</div>"
-        + "<div class='sec-score-val' style='color:" + color + "'>" + s.score + "<span class='sec-score-total'>/" + s.total + "</span></div>"
-        + "<div class='sec-score-meta'>"
-        + "<span class='sec-ok'>&#10003; " + s.correct + "</span>"
+      var marksLabel = s.maxMarks > 0 ? (s.score + "<span class='sec-score-total'>/" + s.maxMarks + "</span>") : "Manual";
+      var objectiveMeta = "<span class='sec-ok'>&#10003; " + s.correct + "</span>"
         + "<span class='sec-bad'>&#10005; " + s.wrong + "</span>"
+        + "<span>Att: " + (s.attempted || 0) + "/" + (s.objectiveTotal || 0) + "</span>";
+      var codingMeta = (s.codingTotal || 0) > 0
+        ? ("<span>Coding: " + (s.codingAnswered || 0) + "/" + s.codingTotal + "</span>")
+        : "";
+      card.innerHTML = "<div class='sec-score-name' style='color:" + color + "'>" + escapeHtml(s.name) + "</div>"
+        + "<div class='sec-score-val' style='color:" + color + "'>" + marksLabel + "</div>"
+        + "<div class='sec-score-meta'>"
+        + objectiveMeta
+        + codingMeta
         + "</div>";
       secWrap.appendChild(card);
     });
@@ -669,6 +838,7 @@
     var sec = getSectionByQuestionIndex(qIndex);
     var correctId = getCorrectOptionId(q);
     var options = getOptionList(q);
+    var isCoding = isCodingQuestion(q);
 
     document.getElementById("modalTitle").textContent = "Question " + (qIndex + 1);
     document.getElementById("modalQNo").textContent = "Q" + (qIndex + 1);
@@ -683,25 +853,34 @@
 
     var optionPreview = document.getElementById("modalOptionPreview");
     optionPreview.innerHTML = "";
-    options.forEach(function (opt) {
-      var row = document.createElement("div");
-      row.className = "modal-option" + (opt.id === correctId ? " correct-opt" : "");
+    if (isCoding) {
+      var codingRow = document.createElement("div");
+      codingRow.className = "modal-option";
+      codingRow.innerHTML = "<strong>Manual evaluation question.</strong><br><span class='modal-coding-note'>This coding response is descriptive and not auto-graded.</span>";
+      optionPreview.appendChild(codingRow);
+    } else {
+      options.forEach(function (opt) {
+        var row = document.createElement("div");
+        row.className = "modal-option" + (opt.id === correctId ? " correct-opt" : "");
 
-      var html = "<strong>" + escapeHtml(opt.id) + ".</strong> " + escapeMathHtml(opt.text);
-      if (opt.image) {
-        html += "<div style='margin-top:8px'><img class='opt-img' alt='Option " + escapeHtml(opt.id) + "' src='" + escapeHtml(opt.image) + "'></div>";
-      }
-      row.innerHTML = html;
-      optionPreview.appendChild(row);
-      safeTypeset(row);
-    });
+        var html = "<strong>" + escapeHtml(opt.id) + ".</strong> " + escapeMathHtml(opt.text);
+        if (opt.image) {
+          html += "<div style='margin-top:8px'><img class='opt-img' alt='Option " + escapeHtml(opt.id) + "' src='" + escapeHtml(opt.image) + "'></div>";
+        }
+        row.innerHTML = html;
+        optionPreview.appendChild(row);
+        safeTypeset(row);
+      });
+    }
 
-    var yourAns = (state.answers && state.answers[q.id]) || "-";
+    var yourAns = isCoding
+      ? (String((state.textResponses && state.textResponses[q.id]) || "").trim() ? "Provided" : "-")
+      : ((state.answers && state.answers[q.id]) || "-");
     var yourEl = document.getElementById("modalYourAns");
     yourEl.textContent = yourAns;
-    yourEl.className = "modal-val" + (yourAns === correctId ? " modal-val-correct" : yourAns === "-" ? " modal-val-na" : " modal-val-wrong");
+    yourEl.className = "modal-val" + (isCoding ? (yourAns === "-" ? " modal-val-na" : " modal-val-correct") : (yourAns === correctId ? " modal-val-correct" : yourAns === "-" ? " modal-val-na" : " modal-val-wrong"));
 
-    document.getElementById("modalCorrectAns").textContent = correctId;
+    document.getElementById("modalCorrectAns").textContent = isCoding ? "Manual" : correctId;
 
     modal.hidden = false;
     document.body.style.overflow = "hidden";
@@ -714,8 +893,10 @@
   }
 
   function getSubmissionSummary() {
+    var bounds = getCurrentBounds();
+    var sectionMode = hasSectionFlow();
     var summary = {
-      total: state.exam.questions.length,
+      total: sectionMode ? (bounds.end - bounds.start + 1) : state.exam.questions.length,
       answered: 0,
       notAnswered: 0,
       notVisited: 0,
@@ -723,8 +904,9 @@
       markedAnswered: 0
     };
 
-    state.exam.questions.forEach(function (q) {
-      var answered = !!state.answers[q.id];
+    state.exam.questions.forEach(function (q, idx) {
+      if (sectionMode && (idx < bounds.start || idx > bounds.end)) return;
+      var answered = isQuestionAnswered(q);
       var visited = !!state.visited[q.id];
       var marked = !!state.marked[q.id];
 
@@ -742,6 +924,32 @@
 
   function fillSubmitSummary() {
     var summary = getSubmissionSummary();
+    var title = document.getElementById("submitModalTitle");
+    var note = document.querySelector(".submit-note");
+
+    if (title) {
+      if (hasSectionFlow()) {
+        var sec = getActiveSection();
+        title.textContent = sec ? ("Submit " + sec.title) : "Submit Section";
+      } else {
+        title.textContent = "Submit Test Summary";
+      }
+    }
+    if (note) {
+      note.textContent = hasSectionFlow()
+        ? "Review this section before submission. After submission, next section will unlock."
+        : "Review your response status before final submission.";
+    }
+
+    var finalBtn = document.getElementById("submitFinalBtn");
+    if (finalBtn) {
+      if (hasSectionFlow()) {
+        finalBtn.textContent = (state.currentSectionIndex >= state.exam.sections.length - 1) ? "Submit Final Section" : "Submit Section";
+      } else {
+        finalBtn.textContent = "Submit Test";
+      }
+    }
+
     document.getElementById("sumTotal").textContent = summary.total;
     document.getElementById("sumAnswered").textContent = summary.answered;
     document.getElementById("sumNotAnswered").textContent = summary.notAnswered;
@@ -785,7 +993,11 @@
 
     document.getElementById("submitFinalBtn").addEventListener("click", function () {
       closeSubmitModal();
-      submitExam(false);
+      if (hasSectionFlow() && state.currentSectionIndex < state.exam.sections.length - 1) {
+        moveToNextSection(false);
+      } else {
+        submitExam(false);
+      }
     });
 
     document.addEventListener("keydown", function (e) {
@@ -1038,11 +1250,13 @@
       examId: state.exam.id,
       studentName: state.studentName,
       answers: state.answers,
+      textResponses: state.textResponses,
       marked: state.marked,
       keyActivity: state.keyActivity,
       awayStartedAt: state.awayStartedAt,
       visited: state.visited,
       currentQuestionIndex: state.currentQuestionIndex,
+      currentSectionIndex: state.currentSectionIndex,
       currentPaletteSection: state.currentPaletteSection,
       timerEndAt: state.timerEndAt
     };
@@ -1085,14 +1299,31 @@
     state.exam = exam;
     state.studentName = saved.studentName || "";
     state.answers = saved.answers && typeof saved.answers === "object" ? saved.answers : {};
+    state.textResponses = saved.textResponses && typeof saved.textResponses === "object" ? saved.textResponses : {};
     state.marked = saved.marked && typeof saved.marked === "object" ? saved.marked : {};
     state.keyActivity = Array.isArray(saved.keyActivity) ? saved.keyActivity : [];
     state.awayStartedAt = Number(saved.awayStartedAt || 0);
     state.visited = saved.visited && typeof saved.visited === "object" ? saved.visited : {};
     state.currentQuestionIndex = Number(saved.currentQuestionIndex || 0);
+    state.currentSectionIndex = Number(saved.currentSectionIndex || 0);
     state.currentPaletteSection = saved.currentPaletteSection || (state.exam.sections[0] ? state.exam.sections[0].key : "maths");
     state.timerEndAt = Number(saved.timerEndAt || 0);
     state.submitted = false;
+
+    if (state.currentSectionIndex < 0) state.currentSectionIndex = 0;
+    if (state.currentSectionIndex > state.exam.sections.length - 1) state.currentSectionIndex = 0;
+
+    if (hasSectionFlow()) {
+      var active = getActiveSection();
+      if (active) {
+        var minQ = Math.max(0, active.start - 1);
+        var maxQ = Math.max(0, active.end - 1);
+        if (state.currentQuestionIndex < minQ || state.currentQuestionIndex > maxQ) {
+          state.currentQuestionIndex = minQ;
+        }
+        state.currentPaletteSection = active.key;
+      }
+    }
 
     if (state.currentQuestionIndex < 0) state.currentQuestionIndex = 0;
     if (state.currentQuestionIndex > state.exam.questions.length - 1) state.currentQuestionIndex = state.exam.questions.length - 1;
@@ -1112,9 +1343,42 @@
     renderSectionTabs();
     renderPalette();
     renderQuestion();
+    updateSubmitButtonLabel();
     startTimer();
     showScreen("exam");
     return true;
+  }
+
+  function moveToNextSection(isAutoSubmit) {
+    if (!hasSectionFlow()) {
+      submitExam(isAutoSubmit);
+      return;
+    }
+
+    if (state.currentSectionIndex >= state.exam.sections.length - 1) {
+      submitExam(isAutoSubmit);
+      return;
+    }
+
+    state.currentSectionIndex += 1;
+    var next = getActiveSection();
+    if (!next) {
+      submitExam(isAutoSubmit);
+      return;
+    }
+
+    state.currentPaletteSection = next.key;
+    state.currentQuestionIndex = Math.max(0, next.start - 1);
+    setTimerForCurrentScope();
+    updateTimerDisplay();
+    updateSubmitButtonLabel();
+    renderSectionTabs();
+    renderPalette();
+    renderQuestion();
+    startTimer();
+    saveExamSession();
+
+    window.alert("Section submitted. " + next.title + " is now open.");
   }
 
   function saveResultToGoogleSheet(result, isAutoSubmit) {
@@ -1376,7 +1640,8 @@
     });
 
     document.getElementById("prevBtn").addEventListener("click", function () {
-      if (state.currentQuestionIndex > 0) {
+      var bounds = getCurrentBounds();
+      if (state.currentQuestionIndex > bounds.start) {
         state.currentQuestionIndex -= 1;
         renderQuestion();
         renderPalette();
@@ -1385,7 +1650,8 @@
     });
 
     document.getElementById("nextBtn").addEventListener("click", function () {
-      if (state.currentQuestionIndex < state.exam.questions.length - 1) {
+      var bounds = getCurrentBounds();
+      if (state.currentQuestionIndex < bounds.end) {
         state.currentQuestionIndex += 1;
         renderQuestion();
         renderPalette();

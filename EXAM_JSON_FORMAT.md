@@ -16,12 +16,13 @@ Use this file shape when importing from the Home screen using the Import JSON bu
   "title": "EAPCET Daily Mock Test - 002",
   "date": "2026-04-29",
   "durationMinutes": 180,
+  "sectionWiseFlow": false,
   "marksPerQuestion": 1,
   "negativeMark": 0,
   "sections": [
-    { "key": "maths", "title": "Maths", "count": 80, "start": 1, "end": 80 },
-    { "key": "physics", "title": "Physics", "count": 40, "start": 81, "end": 120 },
-    { "key": "chemistry", "title": "Chemistry", "count": 40, "start": 121, "end": 160 }
+    { "key": "maths", "title": "Maths", "count": 80, "start": 1, "end": 80, "durationMinutes": 60 },
+    { "key": "physics", "title": "Physics", "count": 40, "start": 81, "end": 120, "durationMinutes": 60 },
+    { "key": "chemistry", "title": "Chemistry", "count": 40, "start": 121, "end": 160, "durationMinutes": 60 }
   ],
   "questions": []
 }
@@ -50,5 +51,7 @@ Use this file shape when importing from the Home screen using the Import JSON bu
 - `text` supports LaTeX inline with `$...$` and display math with `$$...$$`.
 - `image` is optional for both question and option.
 - If options are provided as simple strings like `["A","B","C","D"]`, the app still works (backward compatibility).
+- Set `sectionWiseFlow: true` to enforce section-by-section progression.
+- When `sectionWiseFlow` is enabled, set `durationMinutes` on each section. The next section unlocks only after submitting or timing out the current section.
 - Imported exams are saved in browser localStorage and appear in exam list after refresh.
 - If imported exam ID matches existing exam ID, imported exam replaces it.
