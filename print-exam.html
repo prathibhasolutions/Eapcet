@@ -294,6 +294,8 @@
 </div>
 
 <script src="bundled-exams.js"></script>
+<script src="weekly-mock-test-1.js"></script>
+<script src="weekly-mock-test-2.js"></script>
 <script src="may3rd-shift1.js"></script>
 <script src="may3rd-shift2.js"></script>
 <script src="may4th-shift1.js"></script>
@@ -308,7 +310,11 @@
 <script src="ecet-grand-test-2.js"></script>
 <script>
 function escapeMathHtml(text) {
-  return (text || '').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  if (!text) return '';
+  var s = String(text).replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  s = s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  s = s.replace(/\n/g, '<br>');
+  return s;
 }
 
 function loadExam(examId) {
@@ -376,6 +382,10 @@ function loadExam(examId) {
       html += `</div>`;
 
       html += `<div class="correct-badge">✓ Correct: (${q.correct})</div>`;
+
+      if (q.explanation) {
+        html += `<div class="solution-box" style="margin-top:10px; padding:10px 14px; background:#f0fdf4; border-left:4px solid #16a34a; border-radius:4px; font-size:11.5pt; color:#14532d; line-height:1.55;"><strong>💡 Solution & Explanation:</strong><br>${escapeMathHtml(q.explanation)}</div>`;
+      }
 
       card.innerHTML = html;
       body.appendChild(card);

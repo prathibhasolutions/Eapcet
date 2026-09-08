@@ -91,7 +91,8 @@
       image: q.image || q.imageUrl || "",
       imageLarge: !!q.imageLarge,
       options: options.map(function (opt, i) { return toOptionObject(opt, i); }),
-      correct: qType === "mcq" ? (q.correct || q.correctOption || "A") : ""
+      correct: qType === "mcq" ? (q.correct || q.correctOption || "A") : "",
+      explanation: q.explanation || q.solution || ""
     };
   }
 
@@ -430,7 +431,11 @@
   }
 
   function escapeMathHtml(text) {
-    return (text || "").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    if (!text) return "";
+    var s = String(text).replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    s = s.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+    s = s.replace(/\n/g, "<br>");
+    return s;
   }
 
   function renderMathInNode(node, html) {
@@ -881,6 +886,18 @@
     yourEl.className = "modal-val" + (isCoding ? (yourAns === "-" ? " modal-val-na" : " modal-val-correct") : (yourAns === correctId ? " modal-val-correct" : yourAns === "-" ? " modal-val-na" : " modal-val-wrong"));
 
     document.getElementById("modalCorrectAns").textContent = isCoding ? "Manual" : correctId;
+
+    var expWrap = document.getElementById("modalExplanationWrap");
+    var expText = document.getElementById("modalExplanationText");
+    if (expWrap && expText) {
+      if (q.explanation) {
+        expWrap.style.display = "block";
+        renderMathInNode(expText, q.explanation);
+      } else {
+        expWrap.style.display = "none";
+        expText.innerHTML = "";
+      }
+    }
 
     modal.hidden = false;
     document.body.style.overflow = "hidden";

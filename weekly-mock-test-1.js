@@ -210,7 +210,7 @@
           {
             "id": "w1-chem-16",
             "section": "Chemistry (Atomic Structure)",
-            "text": "Match the principle/rule in **List I** with its correct governing statement in **List II**:\n\n**List I**:\n(A) Aufbau Principle\n(B) Pauli's Exclusion Principle\n(C) Hund's Rule of Maximum Multiplicity\n(D) Heisenberg's Uncertainty Principle\n\n**List II**:\n(I) Pairing of electrons in degenerate orbitals does not take place until each orbital is singly occupied with parallel spins.\n(II) In the ground state of atoms, orbitals are filled in the order of increasing $(n+l)$ energies.\n(III) No two electrons in an isolated atom can have the exact same set of all four quantum numbers.\n(IV) It is impossible to determine simultaneously both the exact position and momentum of a subatomic particle.",
+            "text": "Match the principle/rule in List I with its correct governing statement in List II:\n\nList I:\n(A) Aufbau Principle\n(B) Pauli's Exclusion Principle\n(C) Hund's Rule of Maximum Multiplicity\n(D) Heisenberg's Uncertainty Principle\n\nList II:\n(I) Pairing of electrons in degenerate orbitals does not take place until each orbital is singly occupied with parallel spins.\n(II) In the ground state of atoms, orbitals are filled in the order of increasing $(n+l)$ energies.\n(III) No two electrons in an isolated atom can have the exact same set of all four quantum numbers.\n(IV) It is impossible to determine simultaneously both the exact position and momentum of a subatomic particle.",
             "options": [
               { "id": "A", "text": "A-II, B-III, C-I, D-IV" },
               { "id": "B", "text": "A-III, B-II, C-I, D-IV" },
@@ -222,7 +222,7 @@
           {
             "id": "w1-chem-17",
             "section": "Chemistry (Atomic Structure)",
-            "text": "Consider the following orbitals in a multi-electron atom:\n(1) $n=4, l=0$\n(2) $n=3, l=2$\n(3) $n=4, l=1$\n(4) $n=3, l=1$\n\nAccording to the $(n+l)$ rule, arrange these orbitals in the correct order of **increasing energy**:",
+            "text": "Consider the following orbitals in a multi-electron atom:\n(1) $n=4, l=0$\n(2) $n=3, l=2$\n(3) $n=4, l=1$\n(4) $n=3, l=1$\n\nAccording to the $(n+l)$ rule, arrange these orbitals in the correct order of increasing energy:",
             "options": [
               { "id": "A", "text": "$(4) < (1) < (2) < (3)$" },
               { "id": "B", "text": "$(4) < (2) < (1) < (3)$" },
@@ -390,7 +390,7 @@
           {
             "id": "w1-math-31",
             "section": "Mathematics (Permutations & Combinations)",
-            "text": "Match the combinatorial identity in **List I** with its simplified form in **List II**:\n\n**List I**:\n(A) $^{n}C_r + ^{n}C_{r-1}$\n(B) $\\sum_{r=0}^{n} {^nC_r}$\n(C) $\\sum_{r=1}^{n} r \\cdot {^nC_r}$\n(D) $^{n}C_0 + ^{n+1}C_1 + ^{n+2}C_2 + \\dots + ^{n+k}C_k$\n\n**List II**:\n(I) $2^n$\n(II) $^{n+1}C_r$\n(III) $^{n+k+1}C_k$\n(IV) $n \\cdot 2^{n-1}$",
+            "text": "Match the combinatorial identity in List I with its simplified form in List II:\n\nList I:\n(A) $^{n}C_r + ^{n}C_{r-1}$\n(B) $\\sum_{r=0}^{n} {^nC_r}$\n(C) $\\sum_{r=1}^{n} r \\cdot {^nC_r}$\n(D) $^{n}C_0 + ^{n+1}C_1 + ^{n+2}C_2 + \\dots + ^{n+k}C_k$\n\nList II:\n(I) $2^n$\n(II) $^{n+1}C_r$\n(III) $^{n+k+1}C_k$\n(IV) $n \\cdot 2^{n-1}$",
             "options": [
               { "id": "A", "text": "A-II, B-I, C-IV, D-III" },
               { "id": "B", "text": "A-II, B-IV, C-I, D-III" },
@@ -462,7 +462,7 @@
           {
             "id": "w1-math-37",
             "section": "Mathematics (Permutations & Combinations)",
-            "text": "A person writes 5 letters to 5 different recipients and addresses 5 corresponding envelopes. In how many ways can all 5 letters be placed into envelopes such that **no letter goes into its correctly addressed envelope**?",
+            "text": "A person writes 5 letters to 5 different recipients and addresses 5 corresponding envelopes. In how many ways can all 5 letters be placed into envelopes such that no letter goes into its correctly addressed envelope?",
             "options": [
               { "id": "A", "text": "$44$" },
               { "id": "B", "text": "$53$" },

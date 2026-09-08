@@ -1,12 +1,15 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EAPCET Mock Test Platform</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Sora:wght@500;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Sora:wght@500;700&display=swap"
+    rel="stylesheet">
   <script>
     window.MathJax = {
       tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
@@ -19,17 +22,18 @@
   <link rel="stylesheet" href="styles.css" />
   <script>
     // ── Content protection ──────────────────────────────────────────
-    document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
-    document.addEventListener('copy', function(e) { e.preventDefault(); });
-    document.addEventListener('cut', function(e) { e.preventDefault(); });
-    document.addEventListener('paste', function(e) { e.preventDefault(); });
-    document.addEventListener('selectstart', function(e) { e.preventDefault(); });
-    document.addEventListener('dragstart', function(e) { e.preventDefault(); });
-    document.addEventListener('keydown', function(e) {
-      if (e.ctrlKey && ['c','x','a','s','u','p'].includes(e.key.toLowerCase())) { e.preventDefault(); }
+    document.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+    document.addEventListener('copy', function (e) { e.preventDefault(); });
+    document.addEventListener('cut', function (e) { e.preventDefault(); });
+    document.addEventListener('paste', function (e) { e.preventDefault(); });
+    document.addEventListener('selectstart', function (e) { e.preventDefault(); });
+    document.addEventListener('dragstart', function (e) { e.preventDefault(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.ctrlKey && ['c', 'x', 'a', 's', 'u', 'p'].includes(e.key.toLowerCase())) { e.preventDefault(); }
     });
   </script>
 </head>
+
 <body style="-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;">
   <div class="bg-shape bg-shape-1"></div>
   <div class="bg-shape bg-shape-2"></div>
@@ -38,7 +42,8 @@
     <section id="homeScreen" class="screen active">
       <header class="hero">
         <div class="brand-row">
-          <img id="brandLogo" class="inst-logo" src="assets/logo/prathibha-institute-logo.png" alt="Prathibha Institute logo" />
+          <img id="brandLogo" class="inst-logo" src="assets/logo/prathibha-institute-logo.png"
+            alt="Prathibha Institute logo" />
         </div>
         <div>
           <p class="eyebrow">Daily Competitive Practice</p>
@@ -95,7 +100,8 @@
     <section id="examScreen" class="screen">
       <header class="exam-topbar">
         <div class="exam-topbar-left">
-          <img id="examLogo" class="exam-logo" src="assets/logo/prathibha-institute-logo.png" alt="Prathibha Institute" />
+          <img id="examLogo" class="exam-logo" src="assets/logo/prathibha-institute-logo.png"
+            alt="Prathibha Institute" />
           <div>
             <h2 id="activeExamTitle">Mock Test</h2>
             <p id="studentBadge"></p>
@@ -249,6 +255,10 @@
             <span id="modalCorrectAns" class="modal-val modal-val-correct"></span>
           </div>
         </div>
+        <div id="modalExplanationWrap" class="modal-explanation" style="display:none; margin-top:14px; padding:12px; border-radius:8px; background:#f0fdf4; border:1px solid #bbf7d0;">
+          <strong style="color:#166534; display:block; margin-bottom:6px; font-size:14px;">💡 Solution & Explanation:</strong>
+          <div id="modalExplanationText" style="font-size:13.5px; line-height:1.6; color:#14532d;"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -264,12 +274,24 @@
         <p class="submit-note">Review your response status before final submission.</p>
 
         <div class="submit-stats" id="submitStatsWrap">
-          <div class="submit-stat"><p>Total Questions</p><strong id="sumTotal">0</strong></div>
-          <div class="submit-stat"><p>Answered</p><strong id="sumAnswered">0</strong></div>
-          <div class="submit-stat"><p>Not Answered</p><strong id="sumNotAnswered">0</strong></div>
-          <div class="submit-stat"><p>Not Visited</p><strong id="sumNotVisited">0</strong></div>
-          <div class="submit-stat"><p>Marked For Review</p><strong id="sumMarked">0</strong></div>
-          <div class="submit-stat"><p>Marked + Answered</p><strong id="sumMarkedAnswered">0</strong></div>
+          <div class="submit-stat">
+            <p>Total Questions</p><strong id="sumTotal">0</strong>
+          </div>
+          <div class="submit-stat">
+            <p>Answered</p><strong id="sumAnswered">0</strong>
+          </div>
+          <div class="submit-stat">
+            <p>Not Answered</p><strong id="sumNotAnswered">0</strong>
+          </div>
+          <div class="submit-stat">
+            <p>Not Visited</p><strong id="sumNotVisited">0</strong>
+          </div>
+          <div class="submit-stat">
+            <p>Marked For Review</p><strong id="sumMarked">0</strong>
+          </div>
+          <div class="submit-stat">
+            <p>Marked + Answered</p><strong id="sumMarkedAnswered">0</strong>
+          </div>
         </div>
 
         <div class="button-row submit-actions">
@@ -280,11 +302,12 @@
     </div>
   </div>
 
-  <script src="exams.js"></script>
-  <script src="bundled-exams.js"></script>
-  <script src="pc-162-grand-test-2.js"></script>
-  <script src="pc-162-grand-test-3.js"></script>
+  <!-- <script src="exams.js"></script> -->
+  <!-- <script src="bundled-exams.js"></script> -->
+  <!-- <script src="pc-162-grand-test-2.js"></script> -->
+  <!-- <script src="pc-162-grand-test-3.js"></script> -->
   <script src="weekly-mock-test-1.js"></script>
+  <script src="weekly-mock-test-2.js"></script>
   <!-- <script src="may3rd-shift1.js"></script> -->
   <!-- <script src="may3rd-shift2.js"></script> -->
   <!-- <script src="may4th-shift1.js"></script> -->
@@ -303,4 +326,5 @@
   <!-- <script src="ecet-grand-test-6.js"></script> -->
   <script src="app.js"></script>
 </body>
+
 </html>
